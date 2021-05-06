@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import {createGlobalStyle, css} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
@@ -205,7 +206,7 @@ export const Grid = styled.div`
   width:100%;
   max-width: 1200px;
   display: flex;
-  flex-direction: ${props.row ? 'row' : 'column'};
+  flex-direction: ${props => props.row ? 'row' : 'column'};
   align-items: center;
   padding: 0 130px;
   @media screen and (max-width: ${bp.mobile}px){
@@ -220,8 +221,8 @@ export const Button = styled.span`
   align-items:center;
   justify-content: center;
   ${PgRegular};
-  background: ${props.bgblue ? colors.cta : colors.white};
-  color: ${props.bgblue ? colors.white : colors.cta1};
+  background: ${props => props.bgblue ? colors.cta : colors.white};
+  color: ${props => props.bgblue ? colors.white : colors.cta1};
   height: 48px;
   @media screen and (min-width: ${bp.mobile}px){
     width: 160px;
@@ -269,3 +270,4 @@ const CommonStyle = () => {
     )
 }
 
+export default CommonStyle
