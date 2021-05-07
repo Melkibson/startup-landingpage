@@ -4,6 +4,8 @@ import Brands from "./home-components/Brands";
 import Features from "./home-components/Features";
 import Audience from "./home-components/Audience";
 import Testimony from "./home-components/Testimony";
+import Jobs from "./home-components/Jobs";
+
 
 import styled from "styled-components";
 
@@ -22,6 +24,7 @@ const Home = () => {
             <Audience/>
             <Brands/>
             <Testimony/>
+            <Jobs/>
         </Main>
     )
 }

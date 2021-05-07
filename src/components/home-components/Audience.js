@@ -38,6 +38,7 @@ const RowSteps = styled(Row)`
   align-items: center;
 `
 const Item = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   width: 265px;
