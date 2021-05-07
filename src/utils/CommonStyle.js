@@ -2,18 +2,24 @@ import React from 'react'
 import styled from 'styled-components'
 import {createGlobalStyle, css} from 'styled-components'
 
+import WorkSansBold from '../assets/fonts/work_sans/WorkSans-Bold.ttf'
+import WorkSansRegular from '../assets/fonts/work_sans/WorkSans-Regular.ttf'
+import WorkSansLight from '../assets/fonts/work_sans/WorkSans-Light.ttf'
+
+
 export const GlobalStyle = createGlobalStyle`
     @font-face {
       font-family:Work-Sans-Bold;
-      src:url(../assets/fonts/work_sans/WorkSans-Bold.ttf);
+      src:url(${WorkSansBold});
     }
+   
     @font-face {
       font-family:Work-Sans-Regular;
-      src:url(../assets/fonts/work_sans/WorkSans-Regular-Italic.ttf);
+      src:url(${WorkSansRegular});
     }
     @font-face {
       font-family:Work-Sans-Light;
-      src:url(../assets/fonts/work_sans/WorkSans-Light.ttf);
+      src:url(${WorkSansLight});
     }
 
     body, html, *
@@ -40,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     a {
       color: inherit;
+      text-decoration: none;
     }
     body.block
     {
@@ -68,17 +75,14 @@ export const GlobalStyle = createGlobalStyle`
 export const colors = {
     black: '#000000',
     white: '#FFFFFF',
-    bg1: '#F3C6BD',
-    bg2: '#F4F5F7',
-    bg3: '#00A1C6',
-    bg4: '#FFFFFF',
-    bg5: '#FCF0E3',
-    cta1: '#3040C4',
-    cta2: '#3142C6',
-    textMain: '#2B292D',
-    text1: '#009B4D',
-    text2: '#0189D1',
-    text3: '#F1592B',
+    paleOrange: '#FFD8BA',
+    paleGrey: '#F4F5F7',
+    pink: '#D36FA7',
+    paleBlue: '#ECF4F3',
+    blueGreen: '#229C92',
+    darkViolet: '#2B292D',
+    seaBlue: '#0189D1',
+    orange: '#FC943F',
 }
 
 /*=====  End of COLORS  ======*/
@@ -127,10 +131,10 @@ export const bp = {
 
 
 const FontHeading = css`
-  font-family: Work-Sans-Bold, 'Open Sans', sans-serif;
+  font-family: 'Work-Sans-Bold', 'Open Sans', sans-serif;
 `
 const FontParagraph = css`
-  font-family: Work-Sans-Regular, 'Open Sans', sans-serif;
+  font-family: 'Work-Sans-Regular', 'Open Sans', sans-serif;
 `
 /*----------  H1  ----------*/
 
@@ -196,7 +200,7 @@ export const PgTiny = css`
 
 export const FooterParagraph = styled.div`
   ${PgRegular};
-  color: ${colors.textMain};
+  color: ${colors.darkViolet};
   opacity: 60%;
 `
 
@@ -204,10 +208,9 @@ export const FooterParagraph = styled.div`
 
 export const Grid = styled.div`
   width:100%;
-  max-width: 1200px;
+  max-width: 1440px;
   display: flex;
   flex-direction: ${props => props.row ? 'row' : 'column'};
-  align-items: center;
   padding: 0 130px;
   @media screen and (max-width: ${bp.mobile}px){
     max-width: 650px;
@@ -220,9 +223,10 @@ export const Button = styled.span`
   display:flex;
   align-items:center;
   justify-content: center;
-  ${PgRegular};
-  background: ${props => props.bgblue ? colors.cta : colors.white};
-  color: ${props => props.bgblue ? colors.white : colors.cta1};
+  ${FontHeading};
+  font-size: ${textSize.pgRegular}px;
+  background: ${props => props.bgblue ? colors.blueGreen : colors.white};
+  color: ${props => props.bgblue ? colors.white : colors.blueGreen};
   height: 48px;
   @media screen and (min-width: ${bp.mobile}px){
     width: 160px;
@@ -235,32 +239,36 @@ export const Button = styled.span`
 
 export const NavLink = styled.span`
   ${PgRegular};
-  color: ${colors.textMain};
+  display: flex;
+  justify-content: center;
+  min-width: 75px;
+  color: ${colors.darkViolet};
+  margin-right: 50px;
   &:hover{
     font-weight: bold;
   }
   
 `
-export const NavLinkHeading = styled(H3)`
+export const NavLinkDropHeading = styled(H3)`
   &:hover{
-    color: ${colors.text1};
+    color: ${colors.pink};
   }
 `
 
 export const TextLink = styled.span`
   ${PgRegular};
-  color: ${colors.cta1};
+  color: ${colors.blueGreen};
 `
 
 export const FooterLink = styled.span`
   ${PgRegular};
-  color: ${colors.textMain};
+  color: ${colors.darkViolet};
   opacity: 60%;
 `
 
 export const PrivacyLink = styled.span`
   ${PgTiny};
-  color: ${colors.textMain};
+  color: ${colors.darkViolet};
   opacity: 60%;
 `
 
