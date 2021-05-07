@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import logo from '../../assets/icons/logo.svg';
 import arrow from '../../assets/icons/section-nav/arrow.svg'

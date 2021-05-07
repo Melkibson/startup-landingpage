@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {colors, Grid, H3, PgMedium} from "../../utils/CommonStyle";
 
-const Section = styled.header`
+const Section = styled.section`
   width: 100%;
   height: 255px;
   background: ${colors.paleGrey};
