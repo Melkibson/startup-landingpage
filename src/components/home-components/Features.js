@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {
     Grid, colors, H2, H3, PgBig, PgRegular, PgRegularBold,PgSmall, PrivacyLink, Button, TextLink
 } from '../../utils/CommonStyle'
+
 import compass from '../../assets/icons/section-features/compass.svg'
 import house from '../../assets/icons/section-features/house.svg'
 import files from '../../assets/icons/section-features/files.svg'
@@ -17,7 +18,7 @@ import illu2 from '../../assets/img/section-features/illu-2.svg'
 const Section = styled.section`
   position: relative;
   width: 100%;
-  height: 790px;
+  height: 890px;
   display: flex;
   justify-content: center;
   align-items: center;

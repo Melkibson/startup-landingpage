@@ -215,6 +215,7 @@ export const Grid = styled.div`
   display: flex;
   flex-direction: ${props => props.row ? 'row' : 'column'};
   justify-content: ${props => props.between ? 'space-between' : 'normal'};
+  align-items: ${props => props.center ? 'center' : 'normal'};;
   padding: 0 130px;
   @media screen and (max-width: ${bp.mobile}px){
     max-width: 650px;
@@ -233,6 +234,8 @@ export const Button = styled.span`
   background: ${props => props.bgblue ? colors.blueGreen : colors.white};
   color: ${props => props.bgblue ? colors.white : colors.blueGreen};
   height: 48px;
+  box-shadow: #00000015 0px 1px 30px 0px;
+
   @media screen and (min-width: ${bp.mobile}px){
     width: 160px;
   }
