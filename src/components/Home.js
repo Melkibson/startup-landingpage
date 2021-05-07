@@ -1,6 +1,7 @@
 import Header from "./home-components/Header";
 import Who from "./home-components/Who";
 import Brands from "./home-components/Brands";
+import Features from "./home-components/Features";
 import styled from "styled-components";
 
 const Main = styled.main`
@@ -14,6 +15,7 @@ const Home = () => {
             <Header/>
             <Who/>
             <Brands/>
+            <Features/>
         </Main>
     )
 }

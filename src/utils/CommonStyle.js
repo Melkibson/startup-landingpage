@@ -131,10 +131,10 @@ export const bp = {
 
 
 const FontHeading = css`
-  font-family: 'Work-Sans-Bold', 'Open Sans', sans-serif;
+  font-family: 'Work-Sans-Bold', sans-serif;
 `
 const FontParagraph = css`
-  font-family: 'Work-Sans-Regular', 'Open Sans', sans-serif;
+  font-family: 'Work-Sans-Regular', sans-serif;
 `
 /*----------  H1  ----------*/
 
@@ -181,7 +181,10 @@ export const PgRegular = css`
   ${FontParagraph};
   font-size: ${textSize.desktop.pgRegular}px;
 `
-
+export const PgRegularBold = css`
+  ${FontHeading};
+  font-size: ${textSize.desktop.pgRegular}px;
+`
 /*----------  PARAGRAPH SMALL  ----------*/
 
 export const PgSmall = css`
@@ -211,6 +214,7 @@ export const Grid = styled.div`
   max-width: 1440px;
   display: flex;
   flex-direction: ${props => props.row ? 'row' : 'column'};
+  justify-content: ${props => props.between ? 'space-between' : 'normal'};
   padding: 0 130px;
   @media screen and (max-width: ${bp.mobile}px){
     max-width: 650px;
@@ -220,6 +224,7 @@ export const Grid = styled.div`
 /*----------  BUTTONS  ----------*/
 
 export const Button = styled.span`
+  cursor: pointer;
   display:flex;
   align-items:center;
   justify-content: center;
@@ -238,6 +243,8 @@ export const Button = styled.span`
 /*----------  LINKS  ----------*/
 
 export const NavLink = styled.span`
+  cursor: pointer;
+
   ${PgRegular};
   display: flex;
   justify-content: center;
@@ -250,23 +257,29 @@ export const NavLink = styled.span`
   
 `
 export const NavLinkDropHeading = styled(H3)`
+  cursor: pointer;
   &:hover{
     color: ${colors.pink};
   }
 `
 
 export const TextLink = styled.span`
-  ${PgRegular};
+  cursor: pointer;
+  ${PgRegularBold};
   color: ${colors.blueGreen};
+  text-decoration: underline;
 `
 
 export const FooterLink = styled.span`
+  cursor: pointer;
+
   ${PgRegular};
   color: ${colors.darkViolet};
   opacity: 60%;
 `
 
 export const PrivacyLink = styled.span`
+  cursor: pointer;
   ${PgTiny};
   color: ${colors.darkViolet};
   opacity: 60%;

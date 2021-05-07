@@ -89,10 +89,10 @@ const Header = () => {
                         </LogoText>
                     </LogoContainer>
                     <Links>
-                        <NavLink><a href="#">Home</a></NavLink>
-                        <NavLink><a href="#">Stories</a></NavLink>
-                        <NavLinkLast><a href="#">Library</a><img src={arrow}/></NavLinkLast>
-                        <Button bgblue><a href="#">Get Started</a></Button>
+                        <NavLink>Home</NavLink>
+                        <NavLink>Stories</NavLink>
+                        <NavLinkLast>Library<img src={arrow} alt={'Arrow icon'}/></NavLinkLast>
+                        <Button bgblue>Get Started</Button>
                     </Links>
                 </Nav>
             </Grid>
@@ -101,12 +101,12 @@ const Header = () => {
                     <H1>Build stunning websites & apps.</H1>
                     <HeadingSubText>Create live segments and target the right people for messages based on their behaviors.</HeadingSubText>
                     <ButtonContainer>
-                        <Button bgblue><a href="#">Get Started</a></Button>
-                        <Button><a href="#">Learn More</a></Button>
+                        <Button bgblue>Get Started</Button>
+                        <Button>Learn More</Button>
                     </ButtonContainer>
                 </Column>
                 <Column>
-                    <Illu src={illu}/>
+                    <Illu src={illu} alt={''}/>
                 </Column>
 
 
