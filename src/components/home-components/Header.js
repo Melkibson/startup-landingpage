@@ -4,7 +4,6 @@ import logo from '../../assets/icons/logo.svg';
 import arrow from '../../assets/icons/section-nav/arrow.svg'
 import illu from '../../assets/img/section-header/header-illu.svg'
 
-
 import {colors, Grid, NavLink, Button, FooterLink, H1, PgBig} from '../../utils/CommonStyle';
 
 const Section = styled.header`

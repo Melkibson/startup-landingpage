@@ -1,18 +1,14 @@
-import React from "react";
+import React, {Fragment} from "react";
 import CommonStyle from './utils/CommonStyle'
 import Home from './components/Home'
-import styled from 'styled-components'
 
-const Main = styled.main`
-  position: relative;
-  width: 100%;
-`
+
 const App = () => {
   return (
-      <Main>
+      <Fragment>
         <CommonStyle/>
         <Home/>
-      </Main>
+      </Fragment>
   );
 }
 
