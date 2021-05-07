@@ -18,7 +18,7 @@ const Section = styled.section`
 const Column = styled.div`
   display: flex;
   width: 560px;
-  height: 300px;
+  height: 360px;
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;

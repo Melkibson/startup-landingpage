@@ -169,6 +169,10 @@ export const PgBig = css`
   ${FontParagraph};
   font-size: ${textSize.desktop.pgBig}px;
 `
+export const PgBigBold = css`
+  ${FontHeading};
+  font-size: ${textSize.desktop.pgBig}px;
+`
 /*----------  PARAGRAPH MEDIUM  ----------*/
 
 export const PgMedium = css`

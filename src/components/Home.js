@@ -3,6 +3,8 @@ import Who from "./home-components/Who";
 import Brands from "./home-components/Brands";
 import Features from "./home-components/Features";
 import Audience from "./home-components/Audience";
+import Testimony from "./home-components/Testimony";
+
 import styled from "styled-components";
 
 const Main = styled.main`
@@ -19,6 +21,7 @@ const Home = () => {
             <Features/>
             <Audience/>
             <Brands/>
+            <Testimony/>
         </Main>
     )
 }
