@@ -37,6 +37,9 @@ const RowSteps = styled(Row)`
   justify-content: space-between;
   align-items: center;
 `
+const Title = styled(H3)`
+   transition: all 0.5s ease-in-out;
+`
 const Item = styled.div`
   cursor: pointer;
   display: flex;
@@ -46,16 +49,18 @@ const Item = styled.div`
   box-shadow: #00000015 0px 1px 30px 0px;
   justify-content: space-evenly;
   align-items: center;
+  transition: all 0.5s ease-in-out;
   &:hover{
-    background: ${colors.pink};
+    background: ${colors.lightPink};
+    ${H3}{
+      color: ${colors.white};
+    }
   }
 `
-const IlluContainer = styled.div`
-  width: 190px;
-  height: auto;
-`
+
 const Illu = styled.img`
-  
+    width: auto;
+  height: 120px;
 `
 
 const Audience = () => {
@@ -76,19 +81,19 @@ const Audience = () => {
                 <RowSteps>
                     <Item>
                         <Illu src={imac} alt={''}/>
-                        <H3>Developers</H3>
+                        <Title>Developers</Title>
                     </Item>
                     <Item>
                         <Illu src={polaroid} alt={''}/>
-                        <H3>Entertainment</H3>
+                        <Title>Entertainment</Title>
                     </Item>
                     <Item>
                         <Illu src={dumbbell} alt={''}/>
-                        <H3>Athletes</H3>
+                        <Title>Athletes</Title>
                     </Item>
                     <Item>
                         <Illu src={canvas} alt={''}/>
-                        <H3>Creators</H3>
+                        <Title>Creators</Title>
                     </Item>
                 </RowSteps>
             </Grid>

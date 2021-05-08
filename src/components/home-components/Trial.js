@@ -39,6 +39,11 @@ const Illu = styled.img`
   width: 386px;
   height: auto;
 `
+const Terms = styled(PrivacyLink)`
+  color: #0004bc;
+  opacity: 100%;
+  text-decoration: underline;
+`
 const Trial = () => {
     return(
         <Section>
@@ -52,7 +57,7 @@ const Trial = () => {
                         <Button bgblue>Get Started</Button>
                     </Row>
                     <Row>
-                        <PrivacyLink><span>Free 14-day trial</span> · <span>Easy setup</span> · <span>Cancel any time. Check out </span><span>Terms of Use.</span></PrivacyLink>
+                        <PrivacyLink noCursor><span>Free 14-day trial</span> · <span>Easy setup</span> · <span>Cancel any time. Check out <Terms>Terms of Use.</Terms></span></PrivacyLink>
                     </Row>
                 </Column>
 

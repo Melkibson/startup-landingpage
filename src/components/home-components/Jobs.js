@@ -65,6 +65,7 @@ align-items: center;
   border: 1px solid ${colors.paleGrey};
   border-radius: 8px;
   padding: 0 25px;
+  transition: all 0.5s ease-in-out;
   &:hover {
     background: ${colors.blueGreen};
     box-shadow: #00000035 0px 1px 20px 0px;

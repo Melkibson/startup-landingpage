@@ -33,11 +33,14 @@ const Column = styled.div`
   width: 470px;
   height: 600px;
   justify-content: space-evenly;
+  
 `
+
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
 const TitlePink = styled(H3)`
   color: ${colors.pink};
 `
@@ -47,13 +50,49 @@ const TitleBlue = styled(H3)`
 const TitleOrange = styled(H3)`
   color: ${colors.orange};
 `
+const Text = styled.div`
+  ${PgRegular};
+  height: 60px;
+  transition: all 0.5s ease-out;
+  opacity: 0;
+  visibility: collapse;
+
+`
+
+const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background: ${colors.paleGrey};
+  transition: all 0.5s ease-in-out;
+
+`
+const Title = styled(H3)`
+    transition: all 0.3s ease-in-out;
+`
+const DropColumn = styled(Column)`
+    justify-content: space-evenly;
+    width: 100%;
+    height: 60px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+      &:hover {
+      height: 140px;
+      ${Line} {
+       background:${colors.blueGreen};
+       height: 3px;
+      }
+      ${Title} {
+       color:${colors.blueGreen};
+      }
+      ${Text}{
+        visibility: visible;
+        opacity: 100%
+
+      }
+    }
+`
 const TitleContainer = styled.div`
   display: flex;
-  ${H3} {
-    &:hover{
-      color: ${colors.blueGreen}
-    }
-  }
 `
 const HeadingSubText = styled.div`
   ${PgBig};
@@ -64,22 +103,19 @@ const Icon = styled.img`
   width: 25px;
   margin-right: 15px;
 `
-const Text = styled.div`
-  ${PgRegular};
-`
-const Line = styled.div`
-  width: 100%;
-  height: 1px;
-  background: ${colors.paleGrey};
-  &:hover {
-    height: 3px;
-    background:${colors.blueGreen};
-  }
-`
+
+
 const Screen = styled.img`
+  cursor: pointer;
   position: absolute;
   height: 600px;
   transform: translateX(55%);
+  transition: transform 0.75s linear;
+  box-shadow: #00000015 0px 1px 30px 0px;
+
+  &:hover {
+     transform: translateX(5%);
+  }
 `
 const IlluDev = styled.img`
   width: 480px;
@@ -133,30 +169,38 @@ const Features = () => {
                         <HeadingSubText>
                             Send one-off and automated email, push, and in-app messages to people. Create better stories.
                         </HeadingSubText>
-                        <TitleContainer>
-                            <Icon src={compass}/>
-                            <H3>Acquire new customers</H3>
-                        </TitleContainer>
-                        <Text>
-                            Everything you need to start building – including open-source code, documentation.
-                        </Text>
-                        <Line ></Line>
+                        <DropColumn>
+                            <TitleContainer>
+                                <Icon src={compass}/>
+                                <Title>Acquire new customers</Title>
+                            </TitleContainer>
+                            <Text>
+                                Everything you need to start building – including open-source code, documentation.
+                            </Text>
+                            <Line ></Line>
+                        </DropColumn>
+                        <DropColumn>
+
                         <TitleContainer>
                             <Icon src={house}/>
-                            <H3>Engage users</H3>
+                            <Title>Engage users</Title>
                         </TitleContainer>
                         <Text>
                             Everything you need to start building – including open-source code, documentation.
                         </Text>
                         <Line ></Line>
-                        <TitleContainer>
+                        </DropColumn>
+                            <DropColumn>
+
+                            <TitleContainer>
                             <Icon src={files}/>
-                            <H3>Develop across platforms</H3>
+                            <Title>Develop across platforms</Title>
                         </TitleContainer>
                         <Text>
                             Everything you need to start building – including open-source code, documentation.
                         </Text>
                         <Line></Line>
+                            </DropColumn>
                     </Column>
                     <Screen src={screen}/>
                 </Grid>
@@ -213,7 +257,7 @@ const Features = () => {
                             <TextLink>Learn more about subscriptions</TextLink>
                         </SmallColumn>
                         <SmallColumn>
-                            <Text><Strong>Felxible</Strong> Hours. Get started with our simple snippet of JavaScript or easy to install SDKs for iOS and Android.</Text>
+                            <Text><Strong>Flexible</Strong> Hours. Get started with our simple snippet of JavaScript or easy to install SDKs for iOS and Android.</Text>
                             <TextLink>Get more info about hours</TextLink>
                         </SmallColumn>
                         <SmallColumn>

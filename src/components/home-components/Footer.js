@@ -16,7 +16,7 @@ const Section = styled.footer`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `
 const SectionEnd = styled(Section)`
   height: 50px;
@@ -79,6 +79,10 @@ const BrandSubText = styled(FooterLink)`
 const Store = styled.img`
     width: ${props => props.apple ? '135px' : '116px'};
     height: 40px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+       transform: scale(1.05);
+    }
 `
 const PrivacyRow = styled(RowEnd)`
   width: ${props => props.social ? '100px' : '185px'};
@@ -104,8 +108,8 @@ const Footer = () => {
                             Foundation is a website template for startups and small teams. It helps to build a website in no time.
                         </FooterParagraph>
                         <Row>
-                            <Store apple src={appstore} alt={'app store logo'}/>
-                            <Store src={googlestore} alt={'google store logo'}/>
+                             <a href="https://www.apple.com/fr/ios/app-store/"><Store apple src={appstore} alt={'app store logo'}/></a>
+                             <a href="https://play.google.com/store/apps?hl=fr&gl=US"><Store src={googlestore} alt={'google store logo'}/></a>
                         </Row>
                     </Column>
                     <Row large>
@@ -133,14 +137,14 @@ const Footer = () => {
                 <Grid row>
                     <RowEnd>
                         <PrivacyRow>
-                            <PrivacyLink>Terms</PrivacyLink>
-                            <PrivacyLink>Privacy</PrivacyLink>
-                            <PrivacyLink>License</PrivacyLink>
+                            <a href="/terms"><PrivacyLink>Terms</PrivacyLink></a>
+                            <a href="/privacy"><PrivacyLink>Privacy</PrivacyLink></a>
+                            <a href="/license"><PrivacyLink>License</PrivacyLink></a>
                         </PrivacyRow>
                         <PrivacyRow social>
-                            <Socials src={twitter} alt={'twitter logo'}/>
-                            <Socials src={facebook} alt={'facebook logo'}/>
-                            <Socials src={linkedin} alt={'linkedin logo'}/>
+                            <a href="https://twitter.com"><Socials src={twitter} alt={'twitter logo'}/></a>
+                            <a href="https://facebook.com"><Socials src={facebook} alt={'facebook logo'}/></a>
+                            <a href="https://linkedin.com"><Socials src={linkedin} alt={'linkedin logo'}/></a>
                         </PrivacyRow>
                     </RowEnd>
                 </Grid>

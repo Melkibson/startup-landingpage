@@ -77,6 +77,7 @@ export const colors = {
     white: '#FFFFFF',
     paleOrange: '#FFD8BA',
     paleGrey: '#F4F5F7',
+    lightPink: '#db93b6',
     pink: '#D36FA7',
     paleBlue: '#ECF4F3',
     blueGreen: '#229C92',
@@ -117,6 +118,7 @@ export const textSize = {
 
 export const bp = {
     desktopBig: 2250,
+    desktop: 1400,
     tablet: 1250,
     mobile: 700,
 }
@@ -214,6 +216,7 @@ export const FooterParagraph = styled.div`
 /*----------  GRID  ----------*/
 
 export const Grid = styled.div`
+  position: relative;
   width:100%;
   max-width: 1440px;
   display: flex;
@@ -239,6 +242,10 @@ export const Button = styled.span`
   color: ${props => props.bgblue ? colors.white : colors.blueGreen};
   height: 48px;
   box-shadow: #00000015 0px 1px 30px 0px;
+  transition: all 0.3s ease-in-out;
+  &:hover { 
+    transform: scale(1.075);
+  }
 
   @media screen and (min-width: ${bp.mobile}px){
     width: 160px;
@@ -251,15 +258,15 @@ export const Button = styled.span`
 
 export const NavLink = styled.span`
   cursor: pointer;
-
   ${PgRegular};
   display: flex;
   justify-content: center;
   min-width: 75px;
   color: ${colors.darkViolet};
   margin-right: 50px;
+  transition: all 0.2s ease-in-out;
   &:hover{
-    font-weight: bold;
+    ${FontHeading}
   }
   
 `
@@ -283,10 +290,14 @@ export const FooterLink = styled.span`
   ${PgRegular};
   color: ${colors.darkViolet};
   opacity: 60%;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    opacity: 40%;
+  }
 `
 
 export const PrivacyLink = styled.span`
-  cursor: pointer;
+  cursor: ${props => props.noCursor ? 'normal' : 'pointer'};
   ${PgTiny};
   color: ${colors.darkViolet};
   opacity: 60%;
