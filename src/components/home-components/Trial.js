@@ -39,7 +39,7 @@ const Row = styled.div`
 `
 const Text = styled.div`
   ${PgMedium};
-  @media screen and (max-width: ${bp.mobile}px){
+  @media screen and (max-width: ${bp.tablet}px){
       height: 100%;
       padding: 15px 0;
   }
@@ -56,14 +56,14 @@ const EmailInput = styled.input`
    @media screen and (max-width: ${bp.tablet}px){
       width: 100%;
   }
-   @media screen and (max-width: ${bp.mobile}px){
+   @media screen and (max-width: ${bp.tablet}px){
       margin: 15px 0;
   }
 `
 const Illu = styled.img`
   max-width: 386px;
   height: auto;
-  @media screen and (max-width: ${bp.mobile}px){
+  @media screen and (max-width: ${bp.tablet}px){
     width: 100%;
     margin-bottom: 15px;
 
