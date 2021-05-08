@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Grid, PgMedium, Button, H2, H3, colors, PgRegular, PrivacyLink} from "../../utils/CommonStyle";
+import {Grid, PgMedium, Button, H2, H3, colors, PgRegular, PrivacyLink, bp} from "../../utils/CommonStyle";
 
 import illu from '../../assets/img/section-trial/illu.svg'
 const Section = styled.div`
@@ -8,22 +8,41 @@ const Section = styled.div`
   display: flex;
   background: ${colors.paleGrey};
   justify-content: center;
-  
+    @media screen and (max-width: ${bp.tablet}px){
+    height: 100%;
+    padding: 50px 0;
+   }
 `
 const Column = styled.div`
-  width: 560px;
+  max-width: 560px;
   height: 230px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (max-width: ${bp.tablet}px){
+      height: 100%;
+  }
 `
 const Row = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+   @media screen and (max-width: ${bp.tablet}px){
+      flex-direction: column;
+  }
+  @media screen and (max-width: ${bp.mobile}px){
+      &:last-child {
+          margin-top: 15px;
+      }
+      flex-direction: column;
+  }
 `
 const Text = styled.div`
-  ${PgMedium}
+  ${PgMedium};
+  @media screen and (max-width: ${bp.mobile}px){
+      height: 100%;
+      padding: 15px 0;
+  }
 `
 const EmailInput = styled.input`
   width: 385px;
@@ -34,10 +53,21 @@ const EmailInput = styled.input`
   ::placeholder{
       ${PgRegular};
   }
+   @media screen and (max-width: ${bp.tablet}px){
+      width: 100%;
+  }
+   @media screen and (max-width: ${bp.mobile}px){
+      margin: 15px 0;
+  }
 `
 const Illu = styled.img`
-  width: 386px;
+  max-width: 386px;
   height: auto;
+  @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+    margin-bottom: 15px;
+
+  }
 `
 const Terms = styled(PrivacyLink)`
   color: #0004bc;

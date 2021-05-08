@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Grid, PgBig, PgSmall,PgBigBold, colors,} from '../../utils/CommonStyle'
+import {Grid, PgBig, PgSmall, PgBigBold, colors, bp,} from '../../utils/CommonStyle'
 
 import dot from '../../assets/icons/section-testimony/dot.svg'
 const Section = styled.section`
@@ -17,6 +17,10 @@ const Column = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+  @media screen and (max-width: ${bp.tablet}px){
+     width: 100%;
+  }
+ 
 `
 const Row = styled.div`
   display: flex;

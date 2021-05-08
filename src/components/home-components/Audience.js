@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Grid, H3, H2, Button, PgBig, colors} from '../../utils/CommonStyle'
+import {Grid, H3, H2, Button, PgBig, colors, bp} from '../../utils/CommonStyle'
 
 import imac from '../../assets/img/section-steps/imac.svg'
 import dumbbell from '../../assets/img/section-steps/dumbbell.svg'
@@ -14,10 +14,15 @@ const Section = styled.section`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  @media screen and (max-width: ${bp.tablet}px){
+    height: 100%;
+    padding-bottom: 75px;
+   }
+ 
 `
 const Column = styled.div`
   display: flex;
-  width: 560px;
+  max-width: 560px;
   height: 360px;
   flex-direction: column;
   justify-content: space-evenly;
@@ -30,12 +35,24 @@ const Row = styled.div`
   display: flex;
   width: 330px;
   justify-content: space-between;
+  @media screen and (max-width: ${bp.tablet}px){
+     width: 100%;
+     justify-content: center;
+     flex-direction: column;
+  }
+  
 `
 const RowSteps = styled(Row)`
   width: 100%;
   min-height: 520px;
   justify-content: space-between;
   align-items: center;
+   @media screen and ( max-width: ${bp.tablet}px) and ( min-width: ${bp.mobile}px){
+    padding: 0 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //justify-content: center;
+   }
 `
 const Title = styled(H3)`
    transition: all 0.5s ease-in-out;
@@ -56,11 +73,15 @@ const Item = styled.div`
       color: ${colors.white};
     }
   }
+  @media screen and (max-width: ${bp.tablet}px){
+    margin: 10px 0;
+  }
+
 `
 
 const Illu = styled.img`
     width: auto;
-  height: 120px;
+    height: 120px;
 `
 
 const Audience = () => {

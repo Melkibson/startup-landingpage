@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Grid, PgBig, Button, H2, H3, colors, PgRegular} from "../../utils/CommonStyle";
+import {Grid, PgBig, Button, H2, H3, colors, PgRegular, bp} from "../../utils/CommonStyle";
 
 import arrow from '../../assets/icons/arrow2.svg'
 
@@ -8,6 +8,10 @@ const Section = styled.section`
   width: 100%;
   height: 920px;
   justify-content: center;
+    @media screen and (max-width: ${bp.tablet}px){
+    height: 100%;
+    padding-bottom: 75px;
+   }
 `
 const Container = styled.div`
   display: flex;
@@ -20,37 +24,64 @@ const Container = styled.div`
 `
 const Column = styled.div`
   display: flex;
-  width: 560px;
+  max-width: 560px;
   height: 300px;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
+  @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+
+  }
 `
 const Row = styled.div`
   display: flex;
-  width: 280px;
+  max-width: 280px;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+
+  }
  `
 const HeadingSubText = styled.div`
-  ${PgBig}
+  ${PgBig};
+  @media screen and (max-width: ${bp.tablet}px){
+    margin: 30px 0;
+
+  }
+  
 `
 const CTAButton = styled(Button)`
   width: 250px;
+  @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+
+  }
 `
 const JobColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 750px;
+  max-width: 750px;
   height: 285px;
+    @media screen and (max-width: ${bp.tablet}px){
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+   }
 `
 const JobTitle = styled(H3)`
+@media screen and (max-width: ${bp.tablet}px){
+     max-width: 200px;
+     margin-bottom: 15px;
+  }
 `
 const JobLocation = styled.span`
   ${PgRegular};
   opacity: 60%;
+  
 
   
 `
@@ -81,12 +112,17 @@ align-items: center;
     color: ${colors.white};
     }
   }
+  @media screen and (max-width: ${bp.tablet}px){
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 140px;
+      margin-bottom: 15px;
+  }
 `
 
 const Arrow = styled.img`
-  // &:hover + ${JobItem} {
-  //   fill: ${colors.white};
-  // }
+
 `
 const Jobs = () => {
     return(

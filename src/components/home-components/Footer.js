@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {Fragment} from 'react'
-import {Grid, H2, H3, colors, FooterLink, FooterParagraph, PrivacyLink} from "../../utils/CommonStyle";
+import {Grid, H2, H3, colors, FooterLink, FooterParagraph, PrivacyLink, bp} from "../../utils/CommonStyle";
 
 import logo from '../../assets/icons/logo-footer.svg'
 import appstore from '../../assets/img/section-footer/appstore.svg'
@@ -17,9 +17,17 @@ const Section = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+   @media screen and (max-width: ${bp.tablet}px){
+      height: 100%;
+      padding:${ props => props.pad ? '75px 0' : '0'};
+  }
 `
 const SectionEnd = styled(Section)`
   height: 50px;
+  @media screen and (max-width: ${bp.tablet}px){
+      height: 90px;
+      flex-direction: column;
+  }
 `
 const Line = styled.div`
   width: 100%;
@@ -33,11 +41,31 @@ const Column = styled.div`
   height:${props => props.large ? '279px' : '229px'};
   width: 360px;
   justify-content: space-evenly;
+  @media screen and (max-width: ${bp.tablet}px){
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  
 
 `
 const ColumnSmall = styled(Column)`
   width: 265px;
+  min-height: 190px;
   height: 100%;
+  @media screen and (max-width: ${bp.tablet}px){
+    align-items: flex-start;
+    justify-content: space-evenly;
+    &:first-child{
+      margin-bottom: 15px;
+    }
+      
+      
+  }
+  
+  
+  
 `
 const Row = styled.div`
   display:flex;
@@ -45,11 +73,18 @@ const Row = styled.div`
   width: ${props => props.large ? '560px' : '260px'};
   height: 239px;
   align-items: center;
+  @media screen and (max-width: ${bp.tablet}px){
+    width: ${props => props.large ? '100%' : '260px'};
+    height: 100%;
+    flex-direction: ${props => props.row ? 'row' : 'column'};
+  }
 
 `
 const RowEnd = styled(Row)`
   width:100%;
   height: 50px;
+  @media screen and (max-width: ${bp.tablet}px){
+  }
 `
 const LogoContainer = styled.div`
   display: flex;
@@ -58,6 +93,11 @@ const LogoContainer = styled.div`
   width: 100%;
   height: 100%;
   max-width: 300px;
+  @media screen and (max-width: ${bp.tablet}px){
+      flex-direction: column;
+      justify-content:  space-around;
+      text-align: center;
+  }
 
 `
 const Logo = styled.img`
@@ -86,6 +126,10 @@ const Store = styled.img`
 `
 const PrivacyRow = styled(RowEnd)`
   width: ${props => props.social ? '100px' : '185px'};
+  @media screen and (max-width: ${bp.tablet}px){
+  margin-bottom: ${props => props.social ? '0' : '15px'};
+
+  }
 `
 const Socials = styled.img`
   width: 20px;
@@ -94,7 +138,7 @@ const Socials = styled.img`
 const Footer = () => {
     return (
         <Fragment>
-            <Section>
+            <Section pad>
                 <Grid row between>
                     <Column large>
                         <LogoContainer>
@@ -107,7 +151,7 @@ const Footer = () => {
                         <FooterParagraph>
                             Foundation is a website template for startups and small teams. It helps to build a website in no time.
                         </FooterParagraph>
-                        <Row>
+                        <Row row>
                              <a href="https://www.apple.com/fr/ios/app-store/"><Store apple src={appstore} alt={'app store logo'}/></a>
                              <a href="https://play.google.com/store/apps?hl=fr&gl=US"><Store src={googlestore} alt={'google store logo'}/></a>
                         </Row>
@@ -136,12 +180,12 @@ const Footer = () => {
             <SectionEnd>
                 <Grid row>
                     <RowEnd>
-                        <PrivacyRow>
+                        <PrivacyRow row>
                             <a href="/terms"><PrivacyLink>Terms</PrivacyLink></a>
                             <a href="/privacy"><PrivacyLink>Privacy</PrivacyLink></a>
                             <a href="/license"><PrivacyLink>License</PrivacyLink></a>
                         </PrivacyRow>
-                        <PrivacyRow social>
+                        <PrivacyRow social row>
                             <a href="https://twitter.com"><Socials src={twitter} alt={'twitter logo'}/></a>
                             <a href="https://facebook.com"><Socials src={facebook} alt={'facebook logo'}/></a>
                             <a href="https://linkedin.com"><Socials src={linkedin} alt={'linkedin logo'}/></a>

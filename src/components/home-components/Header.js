@@ -12,7 +12,10 @@ const Section = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  @media screen and (max-width: ${bp.tablet}px){
+    height: 100%;
+    padding-bottom: 75px;
+  }
 `
 
 const Nav = styled.nav`
@@ -22,20 +25,27 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin-top: 40px;
+   @media screen and (max-width: ${bp.tablet}px){
+      margin-top: 0px;
+  }
 `;
 
 const Links = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+   @media screen and (max-width: ${bp.tablet}px){
+    display: none;
+  }
 `
 
 const DropDownLink = styled.div`
+  display: none;
   @media screen and (min-width: ${bp.desktop}px){
     display: flex;
     justify-content:space-between;
     height: 250px;
-    width: 615px;
+    max-width: 615px;
     background: ${colors.white};
     padding: 30px;
     position: absolute;
@@ -98,6 +108,9 @@ const LogoText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media screen and (max-width: ${bp.tablet}px){
+    display: none;
+  }
 `
 const Brand = styled.span`
   font-family: Work-Sans-Bold;
@@ -111,21 +124,40 @@ const Column = styled.div`
   flex-direction: column;
   justify-content: space-around;
   max-width: 700px;
+  @media screen and (max-width: ${bp.tablet}px){
+      width: 100%;
+      align-items: center;
+      height: ${props => props.illu ? '420px' :'560px'};
+  }
 `
 
 const HeadingSubText = styled.div`
   ${PgBig};
-  max-width: 490px;
+  width: 490px;
+   @media screen and (max-width: ${bp.tablet}px){
+      width: 100%;
+  }
 
 `
 const ButtonContainer = styled.div`
   display: flex;
   width: 100%;
-  max-width: 350px;
+  width: 350px;
   justify-content: space-between;
+   @media screen and (max-width: ${bp.tablet}px){
+      flex-direction: column;
+      height: 110px;
+      width: 100%;
+  }
 `
 const Illu = styled.img`
-  width: 600px;
+  max-width: 600px;
+  // @media screen and (max-width: ${bp.tablet}px){
+  //   width: 500px;
+  // }
+  // @media screen and (max-width: ${bp.mobile}px){
+  //   width: 300px;
+  // }
 `
 const Header = () => {
     return(
@@ -163,7 +195,6 @@ const Header = () => {
                     </Links>
 
                 </Nav>
-
             </Grid>
             <Grid row>
                 <Column>
@@ -174,7 +205,7 @@ const Header = () => {
                         <Button>Learn More</Button>
                     </ButtonContainer>
                 </Column>
-                <Column>
+                <Column illu>
                     <Illu src={illu} alt={''}/>
                 </Column>
 

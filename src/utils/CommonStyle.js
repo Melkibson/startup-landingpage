@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 100%;
     }
-    * {
+    * , div{
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     }
@@ -211,6 +211,9 @@ export const FooterParagraph = styled.div`
   ${PgRegular};
   color: ${colors.darkViolet};
   opacity: 60%;
+  @media screen and (max-width: ${bp.tablet}px){
+      display: none;
+  }
 `
 
 /*----------  GRID  ----------*/
@@ -222,10 +225,16 @@ export const Grid = styled.div`
   display: flex;
   flex-direction: ${props => props.row ? 'row' : 'column'};
   justify-content: ${props => props.between ? 'space-between' : 'normal'};
-  align-items: ${props => props.center ? 'center' : 'normal'};;
+  align-items: ${props => props.center ? 'center' : 'normal'};
   padding: 0 130px;
+  @media screen and (max-width: ${bp.tablet}px){
+    width: 100%;
+    padding: 0 75px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
   @media screen and (max-width: ${bp.mobile}px){
-    max-width: 650px;
     padding: 0 15px;
   }
 `
@@ -247,10 +256,10 @@ export const Button = styled.span`
     transform: scale(1.075);
   }
 
-  @media screen and (min-width: ${bp.mobile}px){
+  @media screen and (min-width: ${bp.tablet}px){
     width: 160px;
   }
-  @media screen and (max-width: ${bp.mobile}px){
+  @media screen and (max-width: ${bp.tablet}px){
     width: 100%;
   }
 `

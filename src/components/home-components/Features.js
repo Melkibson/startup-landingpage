@@ -1,7 +1,7 @@
 import  {Fragment} from 'react'
 import styled from 'styled-components'
 import {
-    Grid, colors, H2, H3, PgBig, PgRegular, PgRegularBold,PgSmall, PrivacyLink, Button, TextLink
+    Grid, colors, H2, H3, PgBig, PgRegular, PgRegularBold, PgSmall, PrivacyLink, Button, TextLink, bp
 } from '../../utils/CommonStyle'
 
 import compass from '../../assets/icons/section-features/compass.svg'
@@ -24,21 +24,30 @@ const Section = styled.section`
   align-items: center;
   background: ${props => props.colored ? colors.paleBlue : colors.white};
   overflow-x: hidden;
+  @media screen and (max-width: ${bp.tablet}px){
+    height: 100%;
+    padding: 75px 0;
+}
 
 `
-
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  width: 470px;
+  max-width: 470px;
   height: 600px;
   justify-content: space-evenly;
+  @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+  }
   
 `
 
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
+   @media screen and (max-width: ${bp.tablet}px){
+     flex-direction: column;
+  }
 `
 
 const TitlePink = styled(H3)`
@@ -52,11 +61,14 @@ const TitleOrange = styled(H3)`
 `
 const Text = styled.div`
   ${PgRegular};
+  
+
+`
+const TextAccordeon = styled(Text)`
   height: 60px;
   transition: all 0.5s ease-out;
   opacity: 0;
   visibility: collapse;
-
 `
 
 const Line = styled.div`
@@ -112,13 +124,21 @@ const Screen = styled.img`
   transform: translateX(55%);
   transition: transform 0.75s linear;
   box-shadow: #00000015 0px 1px 30px 0px;
+  @media screen and (max-width: ${bp.tablet}px){
+    display: none;
+
+  }
 
   &:hover {
      transform: translateX(5%);
   }
 `
 const IlluDev = styled.img`
-  width: 480px;
+  max-width: 480px;
+   @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+
+  }
 `
 const Quote = styled.div`
   display: flex;
@@ -152,8 +172,12 @@ const SmallText = styled(PrivacyLink)`
   margin: 0 auto;
 `
 const SmallColumn = styled(Column)`
-  width: 360px;
+  max-width: 360px;
   height: 115px;
+  @media screen and (max-width: ${bp.mobile}px){
+    width: 100%;
+
+  }
 `
 const Strong = styled.span`
   ${PgRegularBold};
@@ -174,9 +198,9 @@ const Features = () => {
                                 <Icon src={compass}/>
                                 <Title>Acquire new customers</Title>
                             </TitleContainer>
-                            <Text>
+                            <TextAccordeon>
                                 Everything you need to start building – including open-source code, documentation.
-                            </Text>
+                            </TextAccordeon>
                             <Line ></Line>
                         </DropColumn>
                         <DropColumn>
@@ -185,9 +209,9 @@ const Features = () => {
                             <Icon src={house}/>
                             <Title>Engage users</Title>
                         </TitleContainer>
-                        <Text>
+                        <TextAccordeon>
                             Everything you need to start building – including open-source code, documentation.
-                        </Text>
+                        </TextAccordeon>
                         <Line ></Line>
                         </DropColumn>
                             <DropColumn>
@@ -196,9 +220,9 @@ const Features = () => {
                             <Icon src={files}/>
                             <Title>Develop across platforms</Title>
                         </TitleContainer>
-                        <Text>
+                        <TextAccordeon>
                             Everything you need to start building – including open-source code, documentation.
-                        </Text>
+                        </TextAccordeon>
                         <Line></Line>
                             </DropColumn>
                     </Column>
