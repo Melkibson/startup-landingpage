@@ -37,8 +37,10 @@ const Row = styled.div`
   justify-content: space-between;
   @media screen and (max-width: ${bp.tablet}px){
      width: 100%;
-     justify-content: center;
+     min-height: 110px;
+     //justify-content: center;
      flex-direction: column;
+     margin-bottom: 30px;
   }
   
 `
