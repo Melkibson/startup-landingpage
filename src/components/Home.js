@@ -5,6 +5,10 @@ import Features from "./home-components/Features";
 import Audience from "./home-components/Audience";
 import Testimony from "./home-components/Testimony";
 import Jobs from "./home-components/Jobs";
+import Trial from "./home-components/Trial";
+import Footer from "./home-components/Footer";
+
+
 
 
 import styled from "styled-components";
@@ -25,6 +29,8 @@ const Home = () => {
             <Brands/>
             <Testimony/>
             <Jobs/>
+            <Trial/>
+            <Footer/>
         </Main>
     )
 }

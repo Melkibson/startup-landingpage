@@ -54,6 +54,7 @@ const Brand = styled.span`
   font-size: 20px;
 `
 const BrandSubText = styled(FooterLink)`
+  cursor: none;
 `
 const Column = styled.div`
   display:flex;
