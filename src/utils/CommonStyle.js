@@ -218,26 +218,38 @@ export const FooterParagraph = styled.div`
 
 /*----------  GRID  ----------*/
 
+const GridResponsive = css`
+    @media screen and (max-width: ${bp.tablet}px){
+        width: 100%;
+        padding: 0 75px;
+        flex-direction: ${props => props.row ? 'row' : 'column'};
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    @media screen and (max-width: ${bp.mobile}px){
+      padding: 0 15px;
+    }
+  }
+`
+
 export const Grid = styled.div`
   position: relative;
+  height: 100%;
   width:100%;
   max-width: 1440px;
   display: flex;
-  flex-direction: ${props => props.row ? 'row' : 'column'};
-  justify-content: ${props => props.between ? 'space-between' : 'normal'};
-  align-items: ${props => props.center ? 'center' : 'normal'};
+  justify-content:${props => props.center ? 'center' : 'space-between'};
+  align-items: ${props => props.align ? 'center' : 'normal'};
   padding: 0 130px;
-  @media screen and (max-width: ${bp.tablet}px){
-    width: 100%;
-    padding: 0 75px;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  @media screen and (max-width: ${bp.mobile}px){
-    padding: 0 15px;
-  }
+  ${GridResponsive};
 `
+export const ColumnGrid = styled(Grid)`
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+`
+
 /*----------  BUTTONS  ----------*/
 
 export const Button = styled.span`
@@ -276,6 +288,11 @@ export const NavLink = styled.span`
   transition: all 0.2s ease-in-out;
   &:hover{
     ${FontHeading}
+  }
+    @media screen and (max-width: ${bp.tablet}px){
+    margin: 0;
+    ${PgBig};
+
   }
   
 `

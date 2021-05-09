@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Grid, H3, H2, Button, PgBig, colors, bp} from '../../utils/CommonStyle'
+import {ColumnGrid, H3, H2, Button, PgBig, colors, bp} from '../../utils/CommonStyle'
 
 import imac from '../../assets/img/section-steps/imac.svg'
 import dumbbell from '../../assets/img/section-steps/dumbbell.svg'
@@ -89,7 +89,7 @@ const Illu = styled.img`
 const Audience = () => {
     return(
         <Section>
-            <Grid center>
+            <ColumnGrid>
                 <Column>
                     <H3>Engage Visitors</H3>
                     <H2>Understand your audience</H2>
@@ -119,7 +119,7 @@ const Audience = () => {
                         <Title>Creators</Title>
                     </Item>
                 </RowSteps>
-            </Grid>
+            </ColumnGrid>
         </Section>
     )
 }

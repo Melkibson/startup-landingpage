@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {Fragment} from 'react'
-import {Grid, H2, H3, colors, FooterLink, FooterParagraph, PrivacyLink, bp} from "../../utils/CommonStyle";
+import {Grid, H3, colors, FooterLink, FooterParagraph, PrivacyLink, bp} from "../../utils/CommonStyle";
 
 import logo from '../../assets/icons/logo-footer.svg'
 import appstore from '../../assets/img/section-footer/appstore.svg'
@@ -139,7 +139,7 @@ const Footer = () => {
     return (
         <Fragment>
             <Section pad>
-                <Grid row between>
+                <Grid align>
                     <Column large>
                         <LogoContainer>
                             <Logo src={logo} alt={'logo'}/>
@@ -178,7 +178,7 @@ const Footer = () => {
             </Section>
             <Line></Line>
             <SectionEnd>
-                <Grid row>
+                <Grid>
                     <RowEnd>
                         <PrivacyRow row>
                             <a href="/terms"><PrivacyLink>Terms</PrivacyLink></a>

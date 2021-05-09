@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Grid, PgBig, PgSmall, PgBigBold, colors, bp,} from '../../utils/CommonStyle'
+import {PgBig, PgSmall, PgBigBold, colors, bp, ColumnGrid,} from '../../utils/CommonStyle'
 
 import dot from '../../assets/icons/section-testimony/dot.svg'
 const Section = styled.section`
@@ -11,7 +11,7 @@ const Section = styled.section`
   border-bottom: 1px solid ${colors.paleGrey};
   @media screen and (max-width: ${bp.tablet}px){
     height: 100%;
-    margin: 75px 0;
+    padding: 75px 0;
 
   }
 `
@@ -77,7 +77,7 @@ const Dot = styled.img`
 const Testimony = () => {
     return(
         <Section>
-            <Grid center>
+            <ColumnGrid>
                 <Column>
                     <Title>Trusted by the world’s most innovative businesses – big and small</Title>
                     <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
@@ -93,7 +93,7 @@ const Testimony = () => {
                     <Dot src={dot}/>
                     <Dot src={dot}/>
                 </Row>
-            </Grid>
+            </ColumnGrid>
         </Section>
     )
 }

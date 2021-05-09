@@ -34,7 +34,7 @@ const Text = styled.div`
 const Who = () => {
     return(
         <Section>
-            <Grid row>
+            <Grid align>
                 <Column>
                     <Heading>Who is it for?</Heading>
                     <Text>Building a website for a startup that looks amazing is not a rocket science anymore.</Text>

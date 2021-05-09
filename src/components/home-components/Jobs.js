@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Grid, PgBig, Button, H2, H3, colors, PgRegular, bp} from "../../utils/CommonStyle";
+import {ColumnGrid, PgBig, Button, H2, H3, colors, PgRegular, bp} from "../../utils/CommonStyle";
 
 import arrow from '../../assets/icons/arrow2.svg'
 
@@ -10,7 +10,7 @@ const Section = styled.section`
   justify-content: center;
     @media screen and (max-width: ${bp.tablet}px){
     height: 100%;
-    padding-bottom: 75px;
+    padding: 75px 0;
    }
 `
 const Container = styled.div`
@@ -37,13 +37,14 @@ const Column = styled.div`
 `
 const Row = styled.div`
   display: flex;
-  max-width: 280px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  @media screen and (max-width: ${bp.mobile}px){
-    width: 100%;
-
+  @media screen and (max-width: ${bp.tablet}px){
+    flex-direction: ${props => props.column ? 'column': 'row'};
+    align-items: flex-start;
   }
+   
  `
 const HeadingSubText = styled.div`
   ${PgBig};
@@ -64,12 +65,13 @@ const JobColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 750px;
+  width: 750px;
   height: 285px;
     @media screen and (max-width: ${bp.tablet}px){
     width: 100%;
     height: 100%;
     padding: 50px 0;
+    justify-content: center;
    }
 `
 const JobTitle = styled(H3)`
@@ -113,21 +115,39 @@ align-items: center;
     }
   }
   @media screen and (max-width: ${bp.tablet}px){
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      height: 140px;
-      margin-bottom: 15px;
+
+      min-height: 100px;
+      max-height: 140px;
+      &:not(:last-child){
+          margin-bottom: 15px;
+      }
+      padding:0;
+      padding-left: 25px;
+      
+      
   }
 `
 
+const ArrowContainer = styled.div`
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    @media screen and (max-width: ${bp.tablet}px){
+    background: #d5d5d5;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+
+}
+`
 const Arrow = styled.img`
 
 `
 const Jobs = () => {
     return(
         <Section>
-            <Grid center>
+            <ColumnGrid center>
                 <Container>
                     <Column>
                         <H2>We’re hiring</H2>
@@ -138,29 +158,35 @@ const Jobs = () => {
                     </Column>
                     <JobColumn>
                         <JobItem>
+                            <Row column>
                             <JobTitle>Front-End Developer</JobTitle>
-                            <Row>
-                                <JobLocation>Los Angeles / Remote</JobLocation>
-                                <Arrow src={arrow} alt="Arrow"/>
+                            <JobLocation>Los Angeles / Remote</JobLocation>
                             </Row>
+                            <ArrowContainer>
+                                <Arrow src={arrow} alt="Arrow"/>
+                            </ArrowContainer>
                         </JobItem>
                         <JobItem>
-                            <JobTitle>Community Manager</JobTitle>
-                            <Row>
+                            <Row column>
+                                <JobTitle>Community Manager</JobTitle>
                                 <JobLocation>New York / Full-Time</JobLocation>
-                                <Arrow src={arrow} alt="Arrow"/>
                             </Row>
+                            <ArrowContainer>
+                                <Arrow src={arrow} alt="Arrow"/>
+                            </ArrowContainer>
                         </JobItem>
                         <JobItem>
-                            <JobTitle>UX/UI Designer</JobTitle>
-                            <Row>
+                            <Row column>
+                                <JobTitle>UX/UI Designer</JobTitle>
                                 <JobLocation>New York / Full-Time</JobLocation>
-                                <Arrow src={arrow} alt="Arrow"/>
                             </Row>
+                            <ArrowContainer>
+                                <Arrow src={arrow} alt="Arrow"/>
+                            </ArrowContainer>
                         </JobItem>
                     </JobColumn>
                 </Container>
-            </Grid>
+            </ColumnGrid>
         </Section>
     )
 }

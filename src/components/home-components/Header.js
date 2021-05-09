@@ -1,9 +1,23 @@
 import styled from 'styled-components'
+import {Fragment, useEffect, useRef, useState} from 'react'
 import logo from '../../assets/icons/logo.svg';
+import burger from '../../assets/icons/burger.svg';
 import arrow from '../../assets/icons/section-nav/arrow.svg'
 import illu from '../../assets/img/section-header/header-illu.svg'
 
-import {colors, Grid, NavLink, Button, FooterLink, H1, PgBig, bp, PgRegular, NavLinkDropHeading} from '../../utils/CommonStyle';
+import {
+    colors,
+    Grid,
+    NavLink,
+    Button,
+    FooterLink,
+    H1,
+    PgBig,
+    bp,
+    PgRegular,
+    NavLinkDropHeading,
+    ColumnGrid
+} from '../../utils/CommonStyle';
 
 const Section = styled.header`
   width: 100%;
@@ -14,7 +28,8 @@ const Section = styled.header`
   align-items: center;
   @media screen and (max-width: ${bp.tablet}px){
     height: 100%;
-    padding-bottom: 75px;
+      padding-bottom: 75px;
+
   }
 `
 
@@ -27,6 +42,8 @@ const Nav = styled.nav`
   margin-top: 40px;
    @media screen and (max-width: ${bp.tablet}px){
       margin-top: 0px;
+      background: ${colors.white};
+      z-index: 99;
   }
 `;
 
@@ -54,12 +71,14 @@ const DropDownLink = styled.div`
     z-index: 99;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
+    visibility: collapse;
     opacity: 0;
   }
 `
 const NavLinkLast = styled(NavLink)`
   display: flex;
   margin-right: 10px;
+
   }
 `
 const NavRow = styled.span`
@@ -96,9 +115,14 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   height: 100%;
-  max-width: 300px;
+  width: 300px;
+  z-index: 999;
+  @media screen and (max-width: ${bp.tablet}px){
+      width: 100%;
+
+  }
+  
 
 `
 const Logo = styled.img`
@@ -123,7 +147,7 @@ const Column = styled.div`
   display:flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 700px;
+  width: 700px;
   @media screen and (max-width: ${bp.tablet}px){
       width: 100%;
       align-items: center;
@@ -151,19 +175,69 @@ const ButtonContainer = styled.div`
   }
 `
 const Illu = styled.img`
-  max-width: 600px;
-  // @media screen and (max-width: ${bp.tablet}px){
-  //   width: 500px;
-  // }
+  width: 600px;
+  @media screen and (max-width: ${bp.tablet}px){
+    width: 100%;
+    height: 100%;
+  }
   // @media screen and (max-width: ${bp.mobile}px){
   //   width: 300px;
   // }
 `
+let displayed = false;
+
+const BurgerMenu = styled.div`
+display: none;
+  z-index: 999;
+@media screen and (max-width: ${bp.tablet}px){
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    border-left: 1px solid ${colors.paleGrey};
+    border-right: 1px solid ${colors.paleGrey};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`
+const BurgerIcon = styled.img`
+display: none;
+@media screen and (max-width: ${bp.tablet}px){
+display: block;
+    height: 15px;
+    width: 20px;
+  }
+`
+
+const ResponsiveNav = styled.div`
+display: none;
+transform: translateY(-100%);
+transition: all 0.75s ease-in-out;
+@media screen and (max-width: ${bp.tablet}px){
+  display: flex;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 200px;
+  transform: ${props => props.show ? 'translateY(0%)' : 'translateY(-100%)'};
+  opacity: ${props => props.show ? '100%' : '0'};
+  top: 60px;
+  left: 0;
+  z-index: 3;
+  background: #FFFFFF;
+  border-top: 1px solid ${colors.paleGrey};
+  }
+`
 const Header = () => {
+    const [show, setShow] = useState(false);
+
     return(
+
         <Section>
-            <Grid>
                 <Nav>
+                    <Grid row>
                     <LogoContainer>
                         <Logo src={logo}/>
                         <LogoText>
@@ -171,9 +245,14 @@ const Header = () => {
                             <BrandSubText>Startup landing template</BrandSubText>
                         </LogoText>
                     </LogoContainer>
+                        <BurgerMenu  onClick={() =>{
+                            setShow(!show);
+                        }}>
+                            <BurgerIcon src={burger}/>
+                        </BurgerMenu>
                     <Links>
-                        <NavLink>Home</NavLink>
-                        <NavLink>Stories</NavLink>
+                        <NavLink show={show}>Home</NavLink>
+                        <NavLink show={show}>Stories</NavLink>
                         <NavColumn>
                             <NavRow><NavLinkLast>Library</NavLinkLast><img src={arrow} alt=""/></NavRow>
                             <DropDownLink>
@@ -193,10 +272,17 @@ const Header = () => {
                         </NavColumn>
                         <Button bgblue>Get Started</Button>
                     </Links>
-
+                    </Grid>
+                    <ResponsiveNav show={show}>
+                        <Grid>
+                            <NavLink>Home</NavLink>
+                            <NavLink>Stories</NavLink>
+                            <NavLink>Library</NavLink>
+                        </Grid>
+                    </ResponsiveNav>
                 </Nav>
-            </Grid>
-            <Grid row>
+
+            <Grid>
                 <Column>
                     <H1>Build stunning websites & apps.</H1>
                     <HeadingSubText>Create live segments and target the right people for messages based on their behaviors.</HeadingSubText>
@@ -212,6 +298,7 @@ const Header = () => {
 
             </Grid>
         </Section>
+
     )
 }
 export default Header

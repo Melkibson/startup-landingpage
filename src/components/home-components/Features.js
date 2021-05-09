@@ -1,7 +1,7 @@
 import  {Fragment} from 'react'
 import styled from 'styled-components'
 import {
-    Grid, colors, H2, H3, PgBig, PgRegular, PgRegularBold, PgSmall, PrivacyLink, Button, TextLink, bp
+    ColumnGrid, Grid,colors, H2, H3, PgBig, PgRegular, PgRegularBold, PgSmall, PrivacyLink, Button, TextLink, bp
 } from '../../utils/CommonStyle'
 
 import compass from '../../assets/icons/section-features/compass.svg'
@@ -28,8 +28,8 @@ const Section = styled.section`
     height: 100%;
     padding: 75px 0;
 }
-
 `
+
 const Column = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,8 +45,10 @@ const Column = styled.div`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
    @media screen and (max-width: ${bp.tablet}px){
      flex-direction: column;
+     align-items: center;
   }
 `
 
@@ -81,6 +83,14 @@ const Line = styled.div`
 const Title = styled(H3)`
     transition: all 0.3s ease-in-out;
 `
+const Icon = styled.svg`
+  height: 25px;
+  width: 25px;
+  margin-right: 15px;
+  fill: ${colors.darkViolet};
+    transition: all 0.5s ease-out;
+
+`
 const DropColumn = styled(Column)`
     justify-content: space-evenly;
     width: 100%;
@@ -101,6 +111,9 @@ const DropColumn = styled(Column)`
         opacity: 100%
 
       }
+      ${Icon}{
+        fill: ${colors.blueGreen};
+      }
     }
 `
 const TitleContainer = styled.div`
@@ -110,11 +123,7 @@ const HeadingSubText = styled.div`
   ${PgBig};
   margin-bottom: 30px;
 `
-const Icon = styled.img`
-  height: 25px;
-  width: 25px;
-  margin-right: 15px;
-`
+
 
 
 const Screen = styled.img`
@@ -186,7 +195,7 @@ const Features = () => {
     return(
         <Fragment>
             <Section>
-                <Grid>
+                <Grid align>
                     <Column>
                         <TitlePink pink>Features</TitlePink>
                         <H2>Easily find leads and customers</H2>
@@ -195,7 +204,9 @@ const Features = () => {
                         </HeadingSubText>
                         <DropColumn>
                             <TitleContainer>
-                                <Icon src={compass}/>
+                                <Icon>
+                                    <use href={compass + '#compass'}></use>
+                                </Icon>
                                 <Title>Acquire new customers</Title>
                             </TitleContainer>
                             <TextAccordeon>
@@ -206,7 +217,9 @@ const Features = () => {
                         <DropColumn>
 
                         <TitleContainer>
-                            <Icon src={house}/>
+                            <Icon>
+                                <use href={house + '#house'}></use>
+                            </Icon>
                             <Title>Engage users</Title>
                         </TitleContainer>
                         <TextAccordeon>
@@ -217,7 +230,9 @@ const Features = () => {
                             <DropColumn>
 
                             <TitleContainer>
-                            <Icon src={files}/>
+                                <Icon>
+                                    <use href={files + '#files'}></use>
+                                </Icon>
                             <Title>Develop across platforms</Title>
                         </TitleContainer>
                         <TextAccordeon>
@@ -229,8 +244,8 @@ const Features = () => {
                     <Screen src={screen}/>
                 </Grid>
             </Section>
-            <Section colored>
-                <Grid row between>
+            <Section colored >
+                <Grid align>
                     <Column>
                         <IlluDev src={illu1}/>
                         <SmallText>Connect with customers and grow faster</SmallText>
@@ -259,7 +274,7 @@ const Features = () => {
                 </Grid>
             </Section>
             <Section>
-                <Grid>
+                <ColumnGrid>
                     <Row>
                         <Column>
                             <TitleBlue>Communicate Better</TitleBlue>
@@ -289,7 +304,7 @@ const Features = () => {
                             <TextLink>Communication guidelines</TextLink>
                         </SmallColumn>
                     </Row>
-                </Grid>
+                </ColumnGrid>
             </Section>
         </Fragment>
 

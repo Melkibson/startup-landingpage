@@ -78,7 +78,7 @@ const GoogleImg = styled.img`
 const Brands = () => {
     return(
         <Section>
-            <Grid>
+            <Grid center>
                 <Row>
                     <ImgContainer>
                         <TNYImg src={TNY}/>

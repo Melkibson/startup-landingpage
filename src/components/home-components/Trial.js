@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Grid, PgMedium, Button, H2, H3, colors, PgRegular, PrivacyLink, bp} from "../../utils/CommonStyle";
+import {Grid, PgMedium, Button, H2, colors, PgRegular, PrivacyLink, bp} from "../../utils/CommonStyle";
 
 import illu from '../../assets/img/section-trial/illu.svg'
 const Section = styled.div`
@@ -77,7 +77,7 @@ const Terms = styled(PrivacyLink)`
 const Trial = () => {
     return(
         <Section>
-            <Grid row center between>
+            <Grid align>
                 <Illu src={illu} alt={''}/>
                 <Column>
                     <H2>Start your free trial.</H2>
