@@ -1,5 +1,5 @@
-import  {Fragment} from 'react'
-import styled from 'styled-components'
+import  {Fragment, useState} from 'react'
+import styled, {css} from 'styled-components'
 import {
     ColumnGrid, Grid,colors, H2, H3, PgBig, PgRegular, PgRegularBold, PgSmall, PrivacyLink, Button, TextLink, bp
 } from '../../utils/CommonStyle'
@@ -91,31 +91,58 @@ const Icon = styled.svg`
     transition: all 0.5s ease-out;
 
 `
+const HoverStyle = css`
+  height: 140px;
+          ${Line} {
+           background:${colors.blueGreen};
+           height: 3px;
+          }
+          ${Title} {
+           color:${colors.blueGreen};
+          }
+          ${Text}{
+            visibility: visible;
+            opacity: 100%
+    
+          }
+          ${Icon}{
+            fill: ${colors.blueGreen};
+        }
+`
 const DropColumn = styled(Column)`
     justify-content: space-evenly;
     width: 100%;
     height: 60px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-      &:hover {
-      height: 140px;
-      ${Line} {
-       background:${colors.blueGreen};
-       height: 3px;
-      }
-      ${Title} {
-       color:${colors.blueGreen};
-      }
-      ${Text}{
-        visibility: visible;
-        opacity: 100%
-
-      }
-      ${Icon}{
-        fill: ${colors.blueGreen};
-      }
+    &:hover {
+        ${HoverStyle}       
+    }
+    
+`
+const DropColumnFirst = styled(DropColumn)`
+@media screen and (max-width: ${bp.tablet}px){
+        ${props => props.clickedFirst}{
+           ${HoverStyle}
+        }
     }
 `
+const DropColumnSec = styled(DropColumn)`
+ @media screen and (max-width: ${bp.tablet}px){
+        ${props => props.clickedSec}{
+           ${HoverStyle}
+        }
+    }
+`
+const DropColumnLast = styled(DropColumn)`
+ @media screen and (max-width: ${bp.tablet}px){
+        ${props => props.clickedLast}{
+           ${HoverStyle}
+        }
+    }
+`
+
+
 const TitleContainer = styled.div`
   display: flex;
 `
@@ -192,6 +219,13 @@ const Strong = styled.span`
   ${PgRegularBold};
 `
 const Features = () => {
+    let initialState = true;
+    const [clickedFirst, setClickedFirst] = useState(initialState);
+    const [clickedSec, setClickedSec] = useState(initialState);
+    const [clickedLast, setClickedLast] = useState(initialState);
+
+
+
     return(
         <Fragment>
             <Section>
@@ -202,7 +236,7 @@ const Features = () => {
                         <HeadingSubText>
                             Send one-off and automated email, push, and in-app messages to people. Create better stories.
                         </HeadingSubText>
-                        <DropColumn>
+                        <DropColumnFirst clickedFirst={clickedFirst} onClick={()=>{setClickedFirst(!clickedFirst)}}>
                             <TitleContainer>
                                 <Icon>
                                     <use href={compass + '#compass'}></use>
@@ -213,9 +247,8 @@ const Features = () => {
                                 Everything you need to start building – including open-source code, documentation.
                             </TextAccordeon>
                             <Line ></Line>
-                        </DropColumn>
-                        <DropColumn>
-
+                        </DropColumnFirst>
+                        <DropColumnSec clickedSec={clickedSec} onClick={()=>{setClickedSec(!clickedSec)}}>
                         <TitleContainer>
                             <Icon>
                                 <use href={house + '#house'}></use>
@@ -226,9 +259,8 @@ const Features = () => {
                             Everything you need to start building – including open-source code, documentation.
                         </TextAccordeon>
                         <Line ></Line>
-                        </DropColumn>
-                            <DropColumn>
-
+                        </DropColumnSec>
+                        <DropColumnLast clickedLast={clickedLast} onClick={()=>{setClickedLast(!clickedLast)}}>
                             <TitleContainer>
                                 <Icon>
                                     <use href={files + '#files'}></use>
@@ -239,7 +271,7 @@ const Features = () => {
                             Everything you need to start building – including open-source code, documentation.
                         </TextAccordeon>
                         <Line></Line>
-                            </DropColumn>
+                            </DropColumnLast>
                     </Column>
                     <Screen src={screen}/>
                 </Grid>

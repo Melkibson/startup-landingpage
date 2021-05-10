@@ -2,8 +2,8 @@
 <svg width="8px" height="5px" viewBox="0 0 8 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Arrow</title>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Menu" transform="translate(-916.000000, -19.000000)" fill="#2B292D" fill-rule="nonzero">
-            <g id="Arrow">
+        <g id="arrow" transform="translate(-916.000000, -19.000000)" fill="#2B292D" fill-rule="nonzero">
+            <g id="">
                 <polygon transform="translate(920.000000, 21.500000) rotate(-270.000000) translate(-920.000000, -21.500000) " points="917.5 24.56 920.590418 21.5 917.5 18.44 918.451417 17.5 922.5 21.5 918.451417 25.5"></polygon>
             </g>
         </g>

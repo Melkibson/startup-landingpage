@@ -38,7 +38,7 @@ const Nav = styled.nav`
   height: 65px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 40px;
    @media screen and (max-width: ${bp.tablet}px){
       margin-top: 0px;
@@ -57,8 +57,9 @@ const Links = styled.div`
 `
 
 const DropDownLink = styled.div`
-  display: none;
   @media screen and (min-width: ${bp.desktop}px){
+    box-shadow: #00000015 0px 1px 30px 0px;
+
     display: flex;
     justify-content:space-between;
     height: 250px;
@@ -67,27 +68,37 @@ const DropDownLink = styled.div`
     padding: 30px;
     position: absolute;
     right: 21%;
-    top: 120px;
-    z-index: 99;
+    top: 80px;
+    z-index: 0;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
-    visibility: collapse;
     opacity: 0;
+    ${props => props.clicked}{
+      opacity: 100%;
+      z-index: 9999;
+    }
   }
 `
 const NavLinkLast = styled(NavLink)`
   display: flex;
   margin-right: 10px;
-
+  ${props => props.clicked}{
+    font-family: 'Work-Sans-Bold', sans-serif;
   }
+
+  
+`
+const Arrow = styled.svg`
+  width: 8px;
+  height: 5px;
 `
 const NavRow = styled.span`
   display: flex;
   justify-content: space-between;
     margin-right: 50px;
-    &:hover{
-     
-}
+    align-items: center;
+    
+    
 `
 const DropDownColumn = styled.div`
   display: flex;
@@ -98,13 +109,13 @@ const DropDownColumn = styled.div`
 `
 const NavColumn = styled.div`
   flex-direction: column;
-   ${NavRow} {
-     &:hover + ${DropDownLink} {
-        {
-          opacity: 100%;
-        }
-     }
-   }
+   // ${NavRow} {
+   //   &:hover + ${DropDownLink} {
+   //      {
+   //        opacity: 100%;
+   //      }
+   //   }
+   // }
 
 `
 
@@ -232,12 +243,14 @@ transition: all 0.75s ease-in-out;
 `
 const Header = () => {
     const [show, setShow] = useState(false);
+    const [clicked, setClicked] = useState(false);
+
 
     return(
 
         <Section>
                 <Nav>
-                    <Grid row>
+                    <Grid row align>
                     <LogoContainer>
                         <Logo src={logo}/>
                         <LogoText>
@@ -254,8 +267,8 @@ const Header = () => {
                         <NavLink show={show}>Home</NavLink>
                         <NavLink show={show}>Stories</NavLink>
                         <NavColumn>
-                            <NavRow><NavLinkLast>Library</NavLinkLast><img src={arrow} alt=""/></NavRow>
-                            <DropDownLink>
+                            <NavRow onClick={()=>{setClicked(!clicked)}}><NavLinkLast clicked={clicked}>Library</NavLinkLast><Arrow alt=""><use href={arrow + "#arrow"}></use></Arrow></NavRow>
+                            <DropDownLink clicked={clicked}>
                                 <DropDownColumn>
                                     <NavLinkDropHeading>Acquire Users</NavLinkDropHeading>
                                     <DropDownText>Work with the tools and services you use.</DropDownText>
