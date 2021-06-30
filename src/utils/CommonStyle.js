@@ -118,7 +118,7 @@ export const textSize = {
 
 export const bp = {
     desktopBig: 2250,
-    desktop: 1400,
+    desktop: 1350,
     tablet: 1250,
     mobile: 700,
 }
@@ -143,7 +143,7 @@ const FontParagraph = css`
 export const H1 = styled.h1`
   ${FontHeading};
   font-size: ${textSize.desktop.h1}px;
-  @media screen and (max-width: ${bp.mobile}px){
+  @media screen and (max-width: ${bp.tablet}px){
     font-size: ${textSize.mobile.h1}px;
   }
 `
@@ -248,6 +248,7 @@ export const ColumnGrid = styled(Grid)`
     justify-content: center;
     align-items: center;
 
+
 `
 
 /*----------  BUTTONS  ----------*/
@@ -267,11 +268,10 @@ export const Button = styled.span`
   &:hover { 
     transform: scale(1.075);
   }
-
-  @media screen and (min-width: ${bp.tablet}px){
+  @media screen and (min-width: ${bp.mobile}px){
     width: 160px;
   }
-  @media screen and (max-width: ${bp.tablet}px){
+  @media screen and (max-width: ${bp.mobile}px){
     width: 100%;
   }
 `

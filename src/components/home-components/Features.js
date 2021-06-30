@@ -1,7 +1,19 @@
 import  {Fragment, useState} from 'react'
 import styled, {css} from 'styled-components'
 import {
-    ColumnGrid, Grid,colors, H2, H3, PgBig, PgRegular, PgRegularBold, PgSmall, PrivacyLink, Button, TextLink, bp
+    ColumnGrid,
+    Grid,
+    colors,
+    H2,
+    H3,
+    PgBig,
+    PgRegular,
+    PgRegularBold,
+    PgSmall,
+    PrivacyLink,
+    Button,
+    TextLink,
+    bp
 } from '../../utils/CommonStyle'
 
 import compass from '../../assets/icons/section-features/compass.svg'

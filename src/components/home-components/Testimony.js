@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import {PgBig, PgSmall, PgBigBold, colors, bp, ColumnGrid,} from '../../utils/CommonStyle'
+import {useState, useRef} from 'react'
+import useInterval from "../../utils/Hooks";
 
 import dot from '../../assets/icons/section-testimony/dot.svg'
 const Section = styled.section`
@@ -15,9 +17,24 @@ const Section = styled.section`
 
   }
 `
+const Grid = styled(ColumnGrid)`
+  overflow: hidden;
+  width: 820px;
+  padding: 0;
+`
+const SliderRow = styled.div`
+  display: flex;
+  width: fit-content;
+  transition: all 0.75s ease-in-out;
+  top: 0;
+  right: 0;
+  //  @media screen and (max-width: ${bp.mobile}px){
+  //   height: 100%;
+  // }
+`
 const Column = styled.div`
   display: flex;
-  width: 820px;
+  min-width: 100%;
   height: 300px;
   flex-direction: column;
   justify-content: space-evenly;
@@ -70,30 +87,73 @@ const Desc = styled.div`
   display: flex;
   flex-direction: column;
 `
-const Dot = styled.img`
-  
+const Dot = styled.svg`
+    &:first-child{
+      fill: ${props => props.slide === 100 ? colors.blueGreen : colors.paleGrey};
+    }
+    &:nth-child(2){
+      fill: ${props => props.slide === 200 ? colors.blueGreen : colors.paleGrey};
+    }
+    &:last-child{
+      fill: ${props => props.slide === 0 ? colors.blueGreen : colors.paleGrey};
+    }
 `
 
 const Testimony = () => {
+    const [slide, setSlide] = useState(0);
+    const ref = useRef(['', '']);
+    useInterval(() =>{
+        if(slide < 200) {
+            setSlide(slide => slide + 100);
+        }  else  {
+            setSlide(0);
+        }
+        let slider = ref.current;
+        slider.style.transform = `translateX(-${slide}%)`;
+
+    }, 5000)
+    console.log(slide)
     return(
         <Section>
-            <ColumnGrid>
-                <Column>
-                    <Title>Trusted by the world’s most innovative businesses – big and small</Title>
-                    <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
-                        Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
-                    </Quote>
-                    <Desc>
-                        <Name>Viella Malkovich</Name>
-                        <Item>Creative Director at Johnson</Item>
-                    </Desc>
-                </Column>
+            <Grid>
+                <SliderRow ref={ref}>
+                    <Column>
+                        <Title>Trusted by the world’s most innovative businesses – big and small</Title>
+                        <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
+                            Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
+                        </Quote>
+                        <Desc>
+                            <Name>Viella Malkovich</Name>
+                            <Item>Creative Director at Johnson</Item>
+                        </Desc>
+                    </Column>
+                    <Column>
+                        <Title>Trusted by the world’s most innovative businesses – big and small</Title>
+                        <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
+                            Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
+                        </Quote>
+                        <Desc>
+                            <Name>Viella Malkovich</Name>
+                            <Item>Creative Director at Johnson</Item>
+                        </Desc>
+                    </Column>
+                    <Column>
+                        <Title>Trusted by the world’s most innovative businesses – big and small</Title>
+                        <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
+                            Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
+                        </Quote>
+                        <Desc>
+                            <Name>Viella Malkovich</Name>
+                            <Item>Creative Director at Johnson</Item>
+                        </Desc>
+                    </Column>
+                </SliderRow>
                 <Row>
-                    <Dot src={dot}/>
-                    <Dot src={dot}/>
-                    <Dot src={dot}/>
+                    <Dot slide={slide}><use href={dot + '#dot'}></use></Dot>
+                    <Dot slide={slide}><use href={dot + '#dot'}></use></Dot>
+                    <Dot slide={slide}><use href={dot + '#dot'}></use></Dot>
                 </Row>
-            </ColumnGrid>
+            </Grid>
         </Section>
     )
 }
