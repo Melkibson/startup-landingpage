@@ -132,7 +132,7 @@ const Translate = {
         "cardTitle2": "Divertissement",
         "cardTitle3": "Sportifs",
         "cardTitle4": "Créateurs",
-        "testimonyHeading": "Les companies les plus innovantes nous font confiance",
+        "testimonyHeading": "Les entreprises les plus innovantes nous font confiance",
         "testimonyContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum elit eu venenatis semper.",
         "testimonyAuthor": "Viella Malkovich",
         "testimonyDesc": "Directrice artistique chez Johnson",

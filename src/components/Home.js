@@ -14,12 +14,19 @@ import TradButton from "./common-components/TradButton";
 
 
 import styled from "styled-components";
+import i18n from "i18next";
+import {initReactI18next} from "react-i18next";
+import translate from "../utils/translation";
 
 const Main = styled.main`
   position: relative;
   width: 100%;
 `
-
+i18n
+    .use(initReactI18next)
+    .init(
+        translate
+    );
 const Home = () => {
     return(
         <Main>

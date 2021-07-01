@@ -3,9 +3,7 @@ import logo from "../../assets/icons/logo.svg";
 import burger from "../../assets/icons/burger.svg";
 import arrow from "../../assets/icons/section-nav/arrow.svg";
 import styled from "styled-components";
-import i18n from "i18next";
-import {initReactI18next, useTranslation} from "react-i18next";
-import translate from "../../utils/translation";
+import {useTranslation} from "react-i18next";
 import {useState} from 'react'
 import Dropdown from "./nav-components/Dropdown";
 
@@ -130,12 +128,6 @@ transition: all 0.75s ease-in-out;
   border-top: 1px solid ${colors.paleGrey};
   }
 `
-
-i18n
-    .use(initReactI18next)
-    .init(
-        translate
-    );
 
 const Navigation = () => {
     const [show, setShow] = useState(false);
