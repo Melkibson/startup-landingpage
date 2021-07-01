@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {bp, colors, NavLinkDropHeading, PgRegular} from "../../../utils/CommonStyle";
+import {bp, colors, NavLinkDropHeading, PgSmall} from "../../../utils/CommonStyle";
+import {useTranslation} from "react-i18next";
 
 const DropDownLink = styled.div`
   @media screen and (min-width: ${bp.desktop}px){
@@ -25,7 +26,7 @@ const DropDownLink = styled.div`
   }
 `
 const DropDownText = styled.div`
-  ${PgRegular};
+  ${PgSmall};
 `
 const DropDownColumn = styled.div`
   display: flex;
@@ -37,19 +38,20 @@ const DropDownColumn = styled.div`
 
 
 const Dropdown = ({clicked}) => {
+    const {t} = useTranslation()
     return(
         <DropDownLink clicked={clicked}>
             <DropDownColumn>
-                <NavLinkDropHeading>Acquire Users</NavLinkDropHeading>
-                <DropDownText>Work with the tools and services you use.</DropDownText>
-                <NavLinkDropHeading>Book Appointments</NavLinkDropHeading>
-                <DropDownText>We offer measures like 2FA to ensure the safety.</DropDownText>
+                <NavLinkDropHeading>{t('navHeader1')}</NavLinkDropHeading>
+                <DropDownText>{t('navSub')}</DropDownText>
+                <NavLinkDropHeading>{t('navHeader2')}</NavLinkDropHeading>
+                <DropDownText>{t('navSub')}</DropDownText>
             </DropDownColumn>
             <DropDownColumn>
-                <NavLinkDropHeading>Engage Customers</NavLinkDropHeading>
-                <DropDownText>Get started with our simple snippet of JavaScript.</DropDownText>
-                <NavLinkDropHeading>Generate Leads</NavLinkDropHeading>
-                <DropDownText>Become a better designer by learning this courses.</DropDownText>
+                <NavLinkDropHeading>{t('navHeader3')}</NavLinkDropHeading>
+                <DropDownText>{t('navSub')}</DropDownText>
+                <NavLinkDropHeading>{t('navHeader4')}</NavLinkDropHeading>
+                <DropDownText>{t('navSub')}</DropDownText>
             </DropDownColumn>
         </DropDownLink>
     )

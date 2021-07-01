@@ -4,6 +4,7 @@ import {useState, useRef} from 'react'
 import useInterval from "../../utils/Hooks";
 
 import dot from '../../assets/icons/section-testimony/dot.svg'
+import {useTranslation} from "react-i18next";
 const Section = styled.section`
   width: 100%;
   height: 500px;
@@ -112,39 +113,35 @@ const Testimony = () => {
         slider.style.transform = `translateX(-${slide}%)`;
 
     }, 5000)
-    console.log(slide)
+
+    const {t} = useTranslation()
     return(
         <Section>
             <Grid>
+                <Title>{t('testimonyHeading')}</Title>
                 <SliderRow ref={ref}>
                     <Column>
-                        <Title>Trusted by the world’s most innovative businesses – big and small</Title>
-                        <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
-                            Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
+                        <Quote>“{t('testimonyContent')}”
                         </Quote>
                         <Desc>
-                            <Name>Viella Malkovich</Name>
-                            <Item>Creative Director at Johnson</Item>
+                            <Name>{t('testimonyAuthor')}</Name>
+                            <Item>{t('testimonyDesc')}</Item>
                         </Desc>
                     </Column>
                     <Column>
-                        <Title>Trusted by the world’s most innovative businesses – big and small</Title>
-                        <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
-                            Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
+                        <Quote>“{t('testimonyContent')}”
                         </Quote>
                         <Desc>
-                            <Name>Viella Malkovich</Name>
-                            <Item>Creative Director at Johnson</Item>
+                            <Name>{t('testimonyAuthor')}</Name>
+                            <Item>{t('testimonyDesc')}</Item>
                         </Desc>
                     </Column>
                     <Column>
-                        <Title>Trusted by the world’s most innovative businesses – big and small</Title>
-                        <Quote>“Comprehensive set of startup tools for all imaginable entrepreneurial needs.
-                            Create landing pages, send emails, find freelancers. Perfect for sales, marketing, and support”
+                        <Quote>“{t('testimonyContent')}”
                         </Quote>
                         <Desc>
-                            <Name>Viella Malkovich</Name>
-                            <Item>Creative Director at Johnson</Item>
+                            <Name>{t('testimonyAuthor')}</Name>
+                            <Item>{t('testimonyDesc')}</Item>
                         </Desc>
                     </Column>
                 </SliderRow>

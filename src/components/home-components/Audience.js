@@ -6,6 +6,7 @@ import imac from '../../assets/img/section-steps/imac.svg'
 import dumbbell from '../../assets/img/section-steps/dumbbell.svg'
 import polaroid from '../../assets/img/section-steps/polariod.svg'
 import canvas from '../../assets/img/section-steps/canvas-stand.svg'
+import {useTranslation} from "react-i18next";
 
 
 const Section = styled.section`
@@ -87,36 +88,36 @@ const Illu = styled.img`
 `
 
 const Audience = () => {
+    const {t} = useTranslation()
     return(
         <Section>
             <ColumnGrid>
                 <Column>
-                    <H3>Engage Visitors</H3>
-                    <H2>Understand your audience</H2>
-                    <HeadingSubText>Early stage company?
-                    Eligible applicants get all of our products for just $49 a month.
+                    <H3>{t('audienceHeadingSmall')}</H3>
+                    <H2>{t('audienceHeading')}</H2>
+                    <HeadingSubText>{t('audienceSubText')}
                     </HeadingSubText>
                 </Column>
                 <Row>
-                    <Button bgblue>Get Started</Button>
-                    <Button>Learn More</Button>
+                    <Button bgblue>{t('buttonStart')}</Button>
+                    <Button>{t('buttonLearn')}</Button>
                 </Row>
                 <RowSteps>
                     <Item>
                         <Illu src={imac} alt={''}/>
-                        <Title>Developers</Title>
+                        <Title>{t('cardTitle1')}</Title>
                     </Item>
                     <Item>
                         <Illu src={polaroid} alt={''}/>
-                        <Title>Entertainment</Title>
+                        <Title>{t('cardTitle2')}</Title>
                     </Item>
                     <Item>
                         <Illu src={dumbbell} alt={''}/>
-                        <Title>Athletes</Title>
+                        <Title>{t('cardTitle3')}</Title>
                     </Item>
                     <Item>
                         <Illu src={canvas} alt={''}/>
-                        <Title>Creators</Title>
+                        <Title>{t('cardTitle4')}</Title>
                     </Item>
                 </RowSteps>
             </ColumnGrid>

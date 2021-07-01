@@ -23,6 +23,7 @@ import screen from '../../assets/img/section-features/screen.png'
 import profile from '../../assets/img/section-features/profile.png'
 import illu1 from '../../assets/img/section-features/illu-1.svg'
 import illu2 from '../../assets/img/section-features/illu-2.svg'
+import {useTranslation} from "react-i18next";
 
 
 
@@ -236,27 +237,27 @@ const Features = () => {
     const [clickedSec, setClickedSec] = useState(initialState);
     const [clickedLast, setClickedLast] = useState(initialState);
 
-
+    const {t} = useTranslation()
 
     return(
         <Fragment>
             <Section>
                 <Grid align>
                     <Column>
-                        <TitlePink pink>Features</TitlePink>
-                        <H2>Easily find leads and customers</H2>
+                        <TitlePink pink>{t('servicesHeadingSmall1')}</TitlePink>
+                        <H2>{t('servicesHeading1')}</H2>
                         <HeadingSubText>
-                            Send one-off and automated email, push, and in-app messages to people. Create better stories.
+                            {t('servicesSubText1')}
                         </HeadingSubText>
                         <DropColumnFirst clickedFirst={clickedFirst} onClick={()=>{setClickedFirst(!clickedFirst)}}>
                             <TitleContainer>
                                 <Icon>
                                     <use href={compass + '#compass'}></use>
                                 </Icon>
-                                <Title>Acquire new customers</Title>
+                                <Title>{t('toggleTitle1')}</Title>
                             </TitleContainer>
                             <TextAccordeon>
-                                Everything you need to start building – including open-source code, documentation.
+                                {t('toggleText')}
                             </TextAccordeon>
                             <Line ></Line>
                         </DropColumnFirst>
@@ -265,10 +266,11 @@ const Features = () => {
                             <Icon>
                                 <use href={house + '#house'}></use>
                             </Icon>
-                            <Title>Engage users</Title>
+                            <Title>{t('toggleTitle2')}</Title>
                         </TitleContainer>
                         <TextAccordeon>
-                            Everything you need to start building – including open-source code, documentation.
+                            {t('toggleText')}
+
                         </TextAccordeon>
                         <Line ></Line>
                         </DropColumnSec>
@@ -277,10 +279,10 @@ const Features = () => {
                                 <Icon>
                                     <use href={files + '#files'}></use>
                                 </Icon>
-                            <Title>Develop across platforms</Title>
+                            <Title>{t('toggleTitle3')}</Title>
                         </TitleContainer>
                         <TextAccordeon>
-                            Everything you need to start building – including open-source code, documentation.
+                            {t('toggleText')}
                         </TextAccordeon>
                         <Line></Line>
                             </DropColumnLast>
@@ -292,25 +294,23 @@ const Features = () => {
                 <Grid align>
                     <Column>
                         <IlluDev src={illu1}/>
-                        <SmallText>Connect with customers and grow faster</SmallText>
+                        <SmallText>{t('illuSubText1')}</SmallText>
                     </Column>
                     <Column>
-                        <TitleOrange>Team Inbox</TitleOrange>
-                        <H2>Manage conversations</H2>
+                        <TitleOrange>{t('servicesHeadingSmall2')}</TitleOrange>
+                        <H2>{t('servicesHeading2')}</H2>
                         <HeadingSubText>
-                            One place to manage and respond to all conversations with leads and users. Receive messages from leads.
+                            {t('servicesSubText2')}
                         </HeadingSubText>
                         <Quote>
                             <Text>
-                                “Great widgets. Great selection.
-                                Great design and <Strong>easy to implement</Strong>.
-                                Definitely a huge time saver for a web developer!”
+                                {t('testimonyContent')}
                             </Text>
                             <ProfileTag>
                                 <Avatar src={profile} alt={'Profile Avatar'} />
                                 <Desc>
-                                    <Name>Viella Malkovich</Name>
-                                    <Item>Creative Director at Johnson</Item>
+                                    <Name>{t('testimonyAuthor')}</Name>
+                                    <Item>{t('testimonyDesc')}</Item>
                                 </Desc>
                             </ProfileTag>
                         </Quote>
@@ -321,31 +321,31 @@ const Features = () => {
                 <ColumnGrid>
                     <Row>
                         <Column>
-                            <TitleBlue>Communicate Better</TitleBlue>
-                            <H2>Built for busy small teams</H2>
+                            <TitleBlue>{t('servicesHeadingSmall3')}</TitleBlue>
+                            <H2>{t('servicesHeading3')}</H2>
                             <HeadingSubText>
-                                Three products that can be used independently or combined together for your company’s needs.
+                                {t('servicesSubText3')}
                             </HeadingSubText>
-                            <Button bgblue>Get Started</Button>
+                            <Button bgblue>{t('buttonStart')}</Button>
                         </Column>
                         <Column>
                             <IlluDev src={illu2} alt={''}/>
-                            <SmallText>A better way to acquire new users</SmallText>
+                            <SmallText>{t('illuSubText2')}</SmallText>
                         </Column>
 
                     </Row>
                     <Row>
                         <SmallColumn>
-                            <Text><Strong>Subscriptions</Strong>. Foundation works with the tools and services you already use every day.</Text>
-                            <TextLink>Learn more about subscriptions</TextLink>
+                            <Text><Strong>{t('servicesColumnStrong1')}</Strong>. {t('servicesColumnText')}</Text>
+                            <TextLink>{t('servicesColumnLink1')}</TextLink>
                         </SmallColumn>
                         <SmallColumn>
-                            <Text><Strong>Flexible</Strong> Hours. Get started with our simple snippet of JavaScript or easy to install SDKs for iOS and Android.</Text>
-                            <TextLink>Get more info about hours</TextLink>
+                            <Text><Strong>{t('servicesColumnStrong2')}</Strong>. {t('servicesColumnText')}</Text>
+                            <TextLink>{t('servicesColumnLink2')}</TextLink>
                         </SmallColumn>
                         <SmallColumn>
-                            <Text><Strong>Fast Communication</Strong>. We offer measures like 2FA and SSO to ensure the safety of your data.</Text>
-                            <TextLink>Communication guidelines</TextLink>
+                            <Text><Strong>{t('servicesColumnStrong3')}</Strong>. {t('servicesColumnText')}</Text>
+                            <TextLink>{t('servicesColumnLink3')}</TextLink>
                         </SmallColumn>
                     </Row>
                 </ColumnGrid>

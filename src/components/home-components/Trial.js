@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {Grid, PgMedium, Button, H2, colors, PgRegular, PrivacyLink, bp} from "../../utils/CommonStyle";
+import { useTranslation } from "react-i18next";
 
 import illu from '../../assets/img/section-trial/illu.svg'
 const Section = styled.div`
@@ -15,7 +16,7 @@ const Section = styled.div`
 `
 const Column = styled.div`
   max-width: 560px;
-  height: 230px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,19 +76,21 @@ const Terms = styled(PrivacyLink)`
   text-decoration: underline;
 `
 const Trial = () => {
+    const {t} = useTranslation()
+
     return(
         <Section>
             <Grid align>
                 <Illu src={illu} alt={''}/>
                 <Column>
-                    <H2>Start your free trial.</H2>
-                    <Text>Get notified about company updates, news and blog posts. We hate spam.</Text>
+                    <H2>{t('trialHeading')}</H2>
+                    <Text>{t('trialSubText')}</Text>
                     <Row>
-                        <EmailInput type={'email'} placeholder={'Enter your email'}/>
-                        <Button bgblue>Get Started</Button>
+                        <EmailInput type={'email'} placeholder={t('trialInputPlaceholder')}/>
+                        <Button bgblue>{t('buttonStart')}</Button>
                     </Row>
                     <Row>
-                        <PrivacyLink noCursor><span>Free 14-day trial</span> · <span>Easy setup</span> · <span>Cancel any time. Check out <Terms>Terms of Use.</Terms></span></PrivacyLink>
+                        <PrivacyLink noCursor><span>{t('trialTerms')} <Terms>{t('trialTermsLink')}.</Terms></span></PrivacyLink>
                     </Row>
                 </Column>
 

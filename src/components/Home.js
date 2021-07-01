@@ -7,6 +7,8 @@ import Testimony from "./home-components/Testimony";
 import Jobs from "./home-components/Jobs";
 import Trial from "./home-components/Trial";
 import Footer from "./home-components/Footer";
+import TradButton from "./common-components/TradButton";
+
 
 
 
@@ -31,6 +33,7 @@ const Home = () => {
             <Jobs/>
             <Trial/>
             <Footer/>
+            <TradButton/>
         </Main>
     )
 }

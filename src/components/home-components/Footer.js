@@ -9,6 +9,7 @@ import googlestore from '../../assets/img/section-footer/googleplay.svg'
 import twitter from  '../../assets/icons/section-footer/icon-twitter.svg'
 import facebook from  '../../assets/icons/section-footer/icon-fb.svg'
 import linkedin from  '../../assets/icons/section-footer/LinkedIn.svg'
+import {useTranslation} from "react-i18next";
 
 
 const Section = styled.footer`
@@ -125,7 +126,7 @@ const Store = styled.img`
     }
 `
 const PrivacyRow = styled(RowEnd)`
-  width: ${props => props.social ? '100px' : '185px'};
+  width: ${props => props.social ? '100px' : '200px'};
   @media screen and (max-width: ${bp.tablet}px){
   margin-bottom: ${props => props.social ? '0' : '15px'};
 
@@ -136,6 +137,7 @@ const Socials = styled.img`
   height: 20px;
 `
 const Footer = () => {
+    const {t} = useTranslation()
     return (
         <Fragment>
             <Section pad>
@@ -149,7 +151,7 @@ const Footer = () => {
                             </LogoText>
                         </LogoContainer>
                         <FooterParagraph>
-                            Foundation is a website template for startups and small teams. It helps to build a website in no time.
+                            {t('footerText')}
                         </FooterParagraph>
                         <Row row>
                              <a href="https://www.apple.com/fr/ios/app-store/"><Store apple src={appstore} alt={'app store logo'}/></a>
@@ -158,20 +160,17 @@ const Footer = () => {
                     </Column>
                     <Row large>
                         <ColumnSmall>
-                            <H3>Product</H3>
-                            <FooterLink>Acquire Users</FooterLink>
-                            <FooterLink>Content Marketing</FooterLink>
-                            <FooterLink>Website Templates</FooterLink>
-                            <FooterLink>Customer Management</FooterLink>
+                            <H3>{t('footerColumnHeading1')}</H3>
+                            <FooterLink>{t('footerColumnLink1')}</FooterLink>
+                            <FooterLink>{t('footerColumnLink2')}</FooterLink>
+                            <FooterLink>{t('footerColumnLink3')}</FooterLink>
                         </ColumnSmall>
 
                         <ColumnSmall>
-                            <H3>Company</H3>
-                            <FooterLink>Virtual Inbox</FooterLink>
-                            <FooterLink>About Foundation</FooterLink>
-                            <FooterLink>Brand Guidelines</FooterLink>
-                            <FooterLink>Press Kit</FooterLink>
-                            <FooterLink>Support</FooterLink>
+                            <H3>{t('footerColumnHeading2')}</H3>
+                            <FooterLink>{t('footerColumnLink5')}</FooterLink>
+                            <FooterLink>{t('footerColumnLink6')}</FooterLink>
+                            <FooterLink>{t('footerColumnLink7')}</FooterLink>
                         </ColumnSmall>
                     </Row>
                 </Grid>
@@ -181,9 +180,9 @@ const Footer = () => {
                 <Grid>
                     <RowEnd>
                         <PrivacyRow row>
-                            <a href="/terms"><PrivacyLink>Terms</PrivacyLink></a>
-                            <a href="/privacy"><PrivacyLink>Privacy</PrivacyLink></a>
-                            <a href="/license"><PrivacyLink>License</PrivacyLink></a>
+                            <a href="/terms"><PrivacyLink>{t('footerPrivacyLink1')}</PrivacyLink></a>
+                            <a href="/privacy"><PrivacyLink>{t('footerPrivacyLink2')}</PrivacyLink></a>
+                            <a href="/license"><PrivacyLink>{t('footerPrivacyLink3')}</PrivacyLink></a>
                         </PrivacyRow>
                         <PrivacyRow social row>
                             <a href="https://twitter.com"><Socials src={twitter} alt={'twitter logo'}/></a>

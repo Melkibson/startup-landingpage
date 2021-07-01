@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {ColumnGrid, PgBig, Button, H2, H3, colors, PgRegular, bp} from "../../utils/CommonStyle";
 
 import arrow from '../../assets/icons/arrow2.svg'
+import {useTranslation} from "react-i18next";
 
 const Section = styled.section`
   display: flex;
@@ -145,22 +146,23 @@ const Arrow = styled.img`
 
 `
 const Jobs = () => {
+    const {t} = useTranslation()
     return(
         <Section>
             <ColumnGrid center>
                 <Container>
                     <Column>
-                        <H2>We’re hiring</H2>
+                        <H2>{t('jobHeading')}</H2>
                         <HeadingSubText>
-                            We’re a team of lifelong learners. We’re equal parts left and right brained.
+                            {t('jobSubText')}
                         </HeadingSubText>
-                        <CTAButton bgblue>More about Company</CTAButton>
+                        <CTAButton bgblue>{t('jobKnowMore')}</CTAButton>
                     </Column>
                     <JobColumn>
                         <JobItem>
                             <Row column>
-                            <JobTitle>Front-End Developer</JobTitle>
-                            <JobLocation>Los Angeles / Remote</JobLocation>
+                            <JobTitle>{t('jobTitlePosition1')}</JobTitle>
+                            <JobLocation>{t('jobLocation1')} / {t('jobContractPosition1')}</JobLocation>
                             </Row>
                             <ArrowContainer>
                                 <Arrow src={arrow} alt="Arrow"/>
@@ -168,8 +170,8 @@ const Jobs = () => {
                         </JobItem>
                         <JobItem>
                             <Row column>
-                                <JobTitle>Community Manager</JobTitle>
-                                <JobLocation>New York / Full-Time</JobLocation>
+                                <JobTitle>{t('jobTitlePosition2')}</JobTitle>
+                                <JobLocation>{t('jobLocation2')} / {t('jobContractPosition2')}</JobLocation>
                             </Row>
                             <ArrowContainer>
                                 <Arrow src={arrow} alt="Arrow"/>
@@ -177,8 +179,8 @@ const Jobs = () => {
                         </JobItem>
                         <JobItem>
                             <Row column>
-                                <JobTitle>UX/UI Designer</JobTitle>
-                                <JobLocation>New York / Full-Time</JobLocation>
+                                 <JobTitle>{t('jobTitlePosition3')}</JobTitle>
+                                 <JobLocation>{t('jobLocation3')} / {t('jobContractPosition3')}</JobLocation>
                             </Row>
                             <ArrowContainer>
                                 <Arrow src={arrow} alt="Arrow"/>

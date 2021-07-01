@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {colors, Grid, H3, PgMedium, bp} from "../../utils/CommonStyle";
+import {useTranslation} from "react-i18next";
 
 const Section = styled.section`
   width: 100%;
@@ -32,16 +33,17 @@ const Text = styled.div`
   ${PgMedium};
 `
 const Who = () => {
+    const {t} = useTranslation()
     return(
         <Section>
             <Grid align>
                 <Column>
-                    <Heading>Who is it for?</Heading>
-                    <Text>Building a website for a startup that looks amazing is not a rocket science anymore.</Text>
+                    <Heading>{t('whoHeading1')}</Heading>
+                    <Text>{t('whoText1')}</Text>
                 </Column>
                 <Column>
-                    <Heading>What is it about?</Heading>
-                    <Text>Startups, small companies and teams, entrepreneurs and web developers.</Text>
+                    <Heading>{t('whoHeading2')}</Heading>
+                    <Text>{t('whoText2')}</Text>
                 </Column>
             </Grid>
         </Section>
