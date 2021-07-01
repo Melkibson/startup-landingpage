@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {PgRegularBold} from "../../utils/CommonStyle";
+import {PgRegularBold, bp} from "../../utils/CommonStyle";
 // import {useState, useEffect} from 'react'
 import Translate from '../../utils/translation'
 import i18n from "i18next";
@@ -16,6 +16,14 @@ top: 43px;
 left: 20px;
 display: flex;
 justify-content: space-between;
+@media screen and  (max-width: ${bp.tablet}px){
+      position: initial;
+      width: 90px;
+      height: auto;
+      justify-content: space-evenly;
+
+      
+    }
 `
 const Lang = styled.span`
   transition: all 0.35s ease-in-out;  
@@ -23,6 +31,7 @@ const Lang = styled.span`
   ${PgRegularBold};
   cursor: pointer;
   width:  35px;
+  height: auto;
   &:hover {
     transform: scale(1.05);
   }
@@ -31,10 +40,16 @@ const Lang = styled.span`
        transform: scale(1.05);
     }
   }
+  @media screen and  (max-width: ${bp.tablet}px){
+    width: 25px;
+  }
 `
 const Flag = styled.img`
   width: 100%;
   height: auto;
+  @media screen and  (max-width: ${bp.tablet}px){
+    height: 100%;
+  }
 `
 const TradButton = () => {
     console.log(Translate.lng)

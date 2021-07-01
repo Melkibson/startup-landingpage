@@ -96,7 +96,7 @@ export const textSize = {
     desktop: {
         h1: 80,
         h2: 56,
-        pgBig: 24,
+        pgBig: 20,
         pgMedium: 22,
         pgRegular: 18,
         pgSmall: 16,

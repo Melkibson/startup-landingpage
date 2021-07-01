@@ -6,6 +6,7 @@ import styled from "styled-components";
 import {useTranslation} from "react-i18next";
 import {useState} from 'react'
 import Dropdown from "./nav-components/Dropdown";
+import TradButton from "./TradButton";
 
 const Nav = styled.nav`
   width: 100%;
@@ -126,7 +127,7 @@ transition: all 0.75s ease-in-out;
   z-index: 3;
   background: #FFFFFF;
   border-top: 1px solid ${colors.paleGrey};
-  }
+
 `
 
 const Navigation = () => {
@@ -139,10 +140,13 @@ const Navigation = () => {
             <Grid row align>
                 <LogoContainer>
                     <Logo src={logo}/>
+                    <TradButton/>
+
                     <LogoText>
                         <Brand>Brand</Brand>
                         <BrandSubText>Startup landing template</BrandSubText>
                     </LogoText>
+
                 </LogoContainer>
                 <BurgerMenu  onClick={() =>{
                     setShow(!show);

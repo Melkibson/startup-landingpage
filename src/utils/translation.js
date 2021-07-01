@@ -170,7 +170,7 @@ const Translate = {
     }
   },
   "lng": "",
-  "fallbackLng": "fr",
+  "fallbackLng": "en",
 
   "interpolation": {
     "escapeValue": false
