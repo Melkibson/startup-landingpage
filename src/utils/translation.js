@@ -100,7 +100,7 @@ const Translate = {
         "navHeader4": "Générer des leads",
         "navSub": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "whoHeading1": "Pour qui ?",
-        "whoHeading2": "Pourquoi",
+        "whoHeading2": "Pourquoi ?",
         "whoText1": "Startups, PME, travailleurs indépendants et développeurs ",
         "whoText2": "Créer des sites avec un design moderne n'est plus inaccessible",
         "servicesHeadingSmall1":"Fonctionalités",
