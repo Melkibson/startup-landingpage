@@ -44,7 +44,6 @@ const Column = styled.div`
      width: 100%;
      height: 100%;
      margin-bottom: 15px;
-     text-align: left;
   }
  
 `
@@ -63,6 +62,7 @@ const Title = styled.span`
   color: ${colors.blueGreen};
   @media screen and (max-width: ${bp.tablet}px){
   margin-bottom: 30px;
+  text-align: center;
 
   }
 
@@ -72,6 +72,7 @@ const Quote = styled.div`
   ${PgBig};
   @media screen and (max-width: ${bp.tablet}px){
   margin-bottom: 30px;
+  max-width: 750px;
   }
 `
 const Item = styled.span`
@@ -121,8 +122,7 @@ const Testimony = () => {
                 <Title>{t('testimonyHeading')}</Title>
                 <SliderRow ref={ref}>
                     <Column>
-                        <Quote>“{t('testimonyContent')}”
-                        </Quote>
+                        <Quote>“{t('testimonyContent')}”</Quote>
                         <Desc>
                             <Name>{t('testimonyAuthor')}</Name>
                             <Item>{t('testimonyDesc')}</Item>

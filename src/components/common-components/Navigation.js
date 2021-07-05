@@ -6,7 +6,7 @@ import styled from "styled-components";
 import {useTranslation} from "react-i18next";
 import {useState} from 'react'
 import Dropdown from "./nav-components/Dropdown";
-import TradButton from "./TradButton";
+import TradButtonRes from "./TradButtonRes";
 
 const Nav = styled.nav`
   width: 100%;
@@ -140,8 +140,7 @@ const Navigation = () => {
             <Grid row align>
                 <LogoContainer>
                     <Logo src={logo}/>
-                    <TradButton/>
-
+                    <TradButtonRes/>
                     <LogoText>
                         <Brand>Brand</Brand>
                         <BrandSubText>Startup landing template</BrandSubText>

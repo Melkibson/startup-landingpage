@@ -42,6 +42,7 @@ const Row = styled.div`
      //justify-content: center;
      flex-direction: column;
      margin-bottom: 30px;
+     align-items: center;
   }
   
 `

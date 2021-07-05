@@ -5,18 +5,16 @@ import i18n from "i18next";
 import flagFR from '../../assets/icons/FR.svg'
 import flagGB from '../../assets/icons/GB.svg'
 
-const Container = styled.div`
-width: 50px;
-height: 70px;
-position:fixed;
-flex-wrap: wrap;
-top: 43px;
-left: 20px;
-display: flex;
-justify-content: space-between;
-@media screen and  (max-width: ${bp.tablet}px){
-   display: none;
-}
+const ContainerRes = styled.div`
+      display: none;
+      flex-wrap: wrap;
+      position: initial;
+      width: 90px;
+      height: auto;
+      justify-content: space-evenly;
+      @media screen and (max-width: ${bp.tablet}px){
+        display: flex;
+      }
 `
 const Lang = styled.span`
   transition: all 0.35s ease-in-out;  
@@ -44,14 +42,14 @@ const Flag = styled.img`
     height: 100%;
   }
 `
-const TradButton = () => {
+const TradButtonRes = () => {
     return(
-            <Container>
+            <ContainerRes>
                 <Lang onClick={() => {i18n.changeLanguage('fr')}}><Flag src={flagFR}/></Lang>
                 <Lang onClick={() => {i18n.changeLanguage('en')}}><Flag src={flagGB}/></Lang>
-            </Container>
+            </ContainerRes>
 
     )
 }
 
-export default TradButton
+export default TradButtonRes

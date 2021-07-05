@@ -115,6 +115,23 @@ align-items: center;
     color: ${colors.white};
     }
   }
+  @media (pointer: coarse){
+    &:active {
+        background: ${colors.blueGreen};
+        box-shadow: #00000035 0px 1px 20px 0px;
+        border: 0;
+        ${JobTitle}{
+          color: ${colors.white};
+        }
+        ${JobLocation} {
+        color: ${colors.white};
+        opacity: 100%;
+        }
+        ${JobTitle} {
+        color: ${colors.white};
+        }
+    }
+  }
   @media screen and (max-width: ${bp.tablet}px){
 
       min-height: 100px;
